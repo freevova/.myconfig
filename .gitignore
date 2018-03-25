@@ -1,0 +1,10 @@
+# Temporary
+.netrwhist
+# *~
+# # Auto-generated tag files
+# tags
+/nvim/bundle/
+QtProject
+configstore
+direnv
+fontforge

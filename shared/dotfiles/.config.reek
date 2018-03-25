@@ -1,0 +1,27 @@
+PrimaDonnaMethod:
+  enabled: false
+
+IrresponsibleModule:
+  enabled: false
+
+exclude_paths:
+  - db
+  - vendor
+
+'app/uploaders':
+  UtilityFunction:
+    enabled: false
+
+'app/controllers':
+  InstanceVariableAssumption:
+    enabled: false
+
+  FeatureEnvy:
+    enabled: false
+
+  UtilityFunction:
+    enabled: false
+
+UncommunicativeModuleName:
+  accept:
+    - 'V1'

@@ -1,0 +1,45 @@
+AllCops:
+  TargetRubyVersion: 2.5
+  Exclude:
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - 'config/initializers/*'
+    - 'bin/*'
+    - 'db/**/*'
+
+Documentation:
+    Enabled: false
+
+Rails:
+    Enabled: true
+
+
+EndOfLine:
+  Enabled: false
+
+Style/Encoding:
+  Enabled: true
+
+Style/NestedParenthesizedCalls:
+  Exclude:
+    - 'spec/**/*'
+
+Style/LambdaCall:
+  Enabled: false
+
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/routes.rb'
+    - 'spec/**/*'
+    - 'config/environments/*'
+
+Metrics/LineLength:
+  Exclude:
+    - 'config/environments/*'
+
+Metrics/LineLength:
+  Max: 120
+
+Style/ClassAndModuleChildren:
+  Enabled: false
