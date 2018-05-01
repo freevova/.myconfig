@@ -1,13 +1,13 @@
 #!/bin/sh
 
-chmod 777 ~/.private_config/ubuntu/tmux.sh
-chmod 777 ~/.private_config/ubuntu/vim.sh
-chmod 777 ~/.private_config/ubuntu/fish.sh
+chmod 777 ~/.config/ubuntu/tmux.sh
+chmod 777 ~/.config/ubuntu/vim.sh
+chmod 777 ~/.config/ubuntu/fish.sh
 
-ln ~/.private_config/shared/dotfiles/.rubocop.yml ~/
-ln ~/.private_config/shared/dotfiles/.config.reek ~/
-ln ~/.private_config/shared/dotfiles/.eslintrc ~/
+ln ~/.config/shared/dotfiles/.rubocop.yml ~/
+ln ~/.config/shared/dotfiles/.config.reek ~/
+ln ~/.config/shared/dotfiles/.eslintrc ~/
 
-~/.private_config/ubuntu/tmux.sh
-~/.private_config/ubuntu/vim.sh
-~/.private_config/ubuntu/fish.sh
+~/.config/ubuntu/tmux.sh
+~/.config/ubuntu/vim.sh
+~/.config/ubuntu/fish.sh

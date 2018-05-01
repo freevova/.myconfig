@@ -99,7 +99,60 @@ ZSH_AUTOSUGGEST_STRATEGY=match_prev_cmd
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(fzf-zsh zsh-more-completions zsh-completions zsh-autosuggestions zsh-syntax-highlighting history-substring-search ruby gem rake rails yarn ng coffee node npm perl cpanm git github gradle ant mvn scala lein spring django pip pyenv python go man nmap postgres redis-cli colorize sudo z rsync docker tmux vundle rust cargo meteor gulp grunt glassfish bundler cloudapp z ssh-agent)
+plugins=(
+  ant
+  bundler
+  cargo
+  cloudapp
+  coffee
+  colorize
+  cpanm
+  django
+  docker
+  fzf-zsh
+  gem
+  git
+  github
+  glassfish
+  go
+  gradle
+  grunt
+  gulp
+  history-substring-search
+  lein
+  man
+  meteor
+  mvn
+  ng
+  nmap
+  node
+  npm
+  perl
+  pip
+  postgres
+  pyenv
+  python
+  rails
+  rake
+  redis-cli
+  rsync
+  ruby
+  rust
+  scala
+  spring
+  ssh-agent
+  sudo
+  tmux
+  vi-mode
+  vi-like
+  vundle
+  yarn
+  z
+  zsh-autosuggestions
+  zsh-completions
+  zsh-more-completions
+  zsh-syntax-highlighting
+)
 
 [[ "$(uname)" == "Darwin" ]] && {
     plugins+=(zsh-xcode-completions bower brew osx pod)
@@ -160,8 +213,6 @@ ZSH_TMUX_AUTOSTART='true'
 # else
 #   export EDITOR='mvim'
 # fi
-
-
 
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 # RVM

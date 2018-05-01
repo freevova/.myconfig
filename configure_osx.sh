@@ -8,10 +8,3 @@ ln ~/.config/shared/dotfiles/.eslintrc ~/
 
 ~/.config/osx/tmux.sh
 ~/.config/osx/vim.sh
-
-
-
-
-
-
-
