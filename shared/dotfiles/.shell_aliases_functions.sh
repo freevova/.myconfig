@@ -2,8 +2,7 @@
 #{{{                    MARK:ALIASES for editing config files
 #**************************************************************
 alias vrc="$EDITOR $MY_VIM"
-alias nvrc="$EDITOR $MY_NVIM"
-alias zrc="$EDITOR  $MY_ZSH; source $MY_ZSH"
+alias zrc="$EDITOR  $MY_ZSH; source $ZSH"
 alias trc="$EDITOR  $MY_TMUX"
 #**********************************************************************
 #                           MARK:SHEL LSCRIPTS

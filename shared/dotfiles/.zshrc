@@ -5,15 +5,23 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="/usr/local/mysql/bin:$PATH"
 export PATH="/Users/volodymyrgula:$PATH"
 export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 export NVM_DIR="$HOME/.nvm"
 export EDITOR=nvim
-export MY_NVIM="$HOME/.config/nvim/init.vim"
+
 export MY_VIM="$HOME/.vimrc"
 export MY_ZSH="$HOME/.zshrc"
 export MY_TMUX="$HOME/.tmux.conf"
-export TERM=xterm-256color-italic
+export TERM=xterm-256color
+
+# color for less and man
+export MANPAGER='less -s -M +Gg'
+export LESS="--RAW-CONTROL-CHARS"
+lesscolors=$HOME/bin/.LESS_TERMCAP
+[[ -f $lesscolors ]] && . $lesscolors
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -142,7 +150,7 @@ plugins=(
   spring
   ssh-agent
   sudo
-  tmux
+  # tmux
   vi-mode
   vi-like
   vundle
@@ -207,22 +215,21 @@ ZSH_TMUX_AUTOSTART='true'
 # . `brew --prefix`/etc/profile.d/z.sh
 
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 # RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-# NVM
-#if [ -s ~/.nvm/nvm.sh ]; then
-#	NVM_DIR=~/.nvm
-#	source ~/.nvm/nvm.sh
-#fi
+# ASDF configuration
+[[ -d "$HOME/.asdf" ]] && {
+  source $HOME/.asdf/asdf.sh
+  source $HOME/.asdf/completions/asdf.bash
+}
 
-eval "$(direnv hook zsh)"
+# Direnv configuration
+command -v direnv >/dev/null && {
+  eval "$(direnv hook zsh)"
+}
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+ctags=/usr/local/bin/ctags

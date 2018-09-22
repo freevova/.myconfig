@@ -15,6 +15,13 @@ if &term =~ '256color'
     set t_ut=
 endif
 
+if has("termguicolors")
+  set termguicolors
+endif
+
+set t_8f=^[[38;2;%lu;%lu;%lum
+set t_8b=^[[48;2;%lu;%lu;%lum
+
 " Auto resizing of focuesed window
 let &winwidth = &columns * 6 / 10
 
@@ -38,7 +45,7 @@ set tags+=gems.tags                 " ctags
 set nu                              " enable left numbers
 set fillchars=vert:\                " disable vert div chars
 set nocompatible                    " be iMproved, required
-set cursorline                      " highlight the cursor screen line #performance issues
+" set cursorline                      " highlight the cursor screen line #performance issues
 " set cursorcolumn                    " highlight the cursor screen line
 set scrolloff=5                     " minimal number of screen lines to keep above and below the cursor
 set spell spelllang=en_us           " spellchecker
@@ -64,13 +71,6 @@ set backspace=2                     " make backspace work like most other apps
 highlight Comment cterm=italic      " italic comments
 let &showbreak='↪ '                 " break symbol
 
-" Enable folding based on syntax rules
-set foldmethod=syntax
-set foldlevelstart=2        " fold nested level
-autocmd BufWinEnter * let &foldlevel = max(map(range(1, line('$')), 'foldlevel(v:val)'))
-" Map folding to Spacebar
-nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-vnoremap <Space> zf
 
 "}}}***********************************************************************
 "{{{                     Plugins
@@ -128,7 +128,8 @@ call plug#begin('~/.vim/plugged')
         \ --ignore-dir "verificator"
         \ --ignore "*.log"
         \ --ignore "*tags"
-        \ --ignore "db/schema*"'
+        \ --ignore "db/schema*"
+        \ --ignore "yarn.lock"'
 
         if !exists(":Ag")
           command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
@@ -136,21 +137,23 @@ call plug#begin('~/.vim/plugged')
         endif
     endif
   Plug 'majutsushi/tagbar'                             " you can set tags for lines
-  Plug 'matze/vim-move'                                " move selected code lines
-    let g:move_key_modifier = 'C'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " search file by name
   Plug 'junegunn/fzf.vim'                                           " search files by name
     let $FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
     let $FZF_DEFAULT_OPTS='--preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null | head -500"'
-    nnoremap z :FZF<CR>
+    nnoremap f :FZF<CR>
 
 " Correction
   Plug 'w0rp/ale'                                      " async linter
     let g:ale_linters = {
-    \   'ruby': ['ruby', 'reek', 'rubocop', 'brakeman', 'rails_best_practices'],
-    \   'elixir': ['credo'],
-    \   'graphql': ['eslint']
+    \  'ruby':       ['ruby', 'reek', 'rubocop', 'brakeman', 'rails_best_practices'],
+    \  'javascript': ['eslint'],
+    \  'elixir':     ['credo'],
     \}
+    let g:ale_fixers = {
+    \  'javascript': ['prettier', 'eslint']
+    \}
+    nmap <C-M> <Plug>(ale_fix)
     " let g:ale_completion_enabled = 1
     " let g:airline#extensions#ale#enabled = 1
     " let g:ale_echo_msg_error_str = '☠ '
@@ -180,7 +183,6 @@ call plug#begin('~/.vim/plugged')
         \ 'javascript' : 1,
         \}
   Plug 'equalsraf/neovim-gui-shim'                     " GUI commands for NEOVIM
-  Plug 'ngmy/vim-rubocop'                              " rubocop linter
 
 " Appearance
   Plug 'airblade/vim-gitgutter'                        " GIT commands
@@ -188,6 +190,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'Bling/vim-airline'                             " status-bar
     set laststatus=2
     let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#branch#enabled = 0
     let g:airline_powerline_fonts = 1
     let g:airline_theme='dark'
     let g:airline_left_sep = ''
@@ -208,6 +211,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'Yggdroot/indentLine'                           " prints vertical lines at each indentation level
     let g:indentLine_char = '¦'
   Plug 'terryma/vim-multiple-cursors'                  " ability to edit with multiple cursors
+  Plug 'Chiel92/vim-autoformat'                        " + install ruby-beautify gem
+    noremap === :Autoformat<CR>
 
 " Ruby/Rails
   Plug 'tpope/vim-endwise'                             " autocomplete ruby blocks
@@ -238,7 +243,7 @@ call plug#begin('~/.vim/plugged')
 " TMUX
   Plug 'jgdavey/tslime.vim'
     let g:tslime_always_current_session = 1                    " run in current session
-    let g:tslime_always_current_window = 1                      " run in current window
+    " let g:tslime_always_current_window = 1                      " run in current window
     let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")' " command to run<Paste>
 
 call plug#end()
@@ -251,6 +256,7 @@ call plug#end()
 set termguicolors
 colorscheme NeoSolarized
 set background=dark
+" set background=light
 let g:neosolarized_vertSplitBgTrans = 1
 set t_8f=^[[38;2;%lu;%lu;%lum
 set t_8b=^[[48;2;%lu;%lu;%lum
