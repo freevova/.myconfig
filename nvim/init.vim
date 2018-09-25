@@ -1,8 +1,26 @@
+
+
+
 " {{{                     VIM SETTINGS
 "**************************************************************************
 
 " {{{                     General functions
 "**************************************************************************
+
+" #############################
+" ### FOLDING
+" #############################
+" Toggle fold at current position.
+" (Using s-tab to avoid collision between <tab> and <C-i>).
+nnoremap <s-tab> za
+
+if has('folding')
+  if has('windows')
+    let &fillchars='vert: '           " less cluttered vertical window separators
+  endif
+  set foldmethod=indent               " not as cool as syntax, but faster
+  set foldlevelstart=99               " start unfolded
+endif
 
 " autosave view
 if has("autocmd")
@@ -258,8 +276,6 @@ colorscheme NeoSolarized
 set background=dark
 " set background=light
 let g:neosolarized_vertSplitBgTrans = 1
-set t_8f=^[[38;2;%lu;%lu;%lum
-set t_8b=^[[48;2;%lu;%lu;%lum
 
 " colorscheme railscasts
 " colorscheme monokai-phoenix

@@ -1,7 +1,8 @@
 #**************************************************************
 #{{{                    MARK:ALIASES for editing config files
 #**************************************************************
-alias vrc="$EDITOR $MY_VIM"
+#alias vrc="$EDITOR $MY_VIM"
+alias vrc="$EDITOR $HOME/.config/nvim/init.vim"
 alias zrc="$EDITOR  $MY_ZSH; source $ZSH"
 alias trc="$EDITOR  $MY_TMUX"
 #**********************************************************************
