@@ -189,11 +189,10 @@ call plug#begin('~/.vim/plugged')
     let g:ale_linters = {
     \  'ruby':       ['ruby', 'reek', 'rubocop', 'brakeman', 'rails_best_practices'],
     \  'javascript': ['eslint'],
-    \  'elixir':     ['credo'],
     \}
-    let g:ale_fixers = {
-    \  'javascript': ['prettier', 'eslint']
-    \}
+    " let g:ale_fixers = {
+    " \  'javascript': ['prettier', 'eslint']
+    " \}
     nmap <C-M> <Plug>(ale_fix)
     let g:ale_completion_enabled = 1
     let g:airline#extensions#ale#enabled = 1
