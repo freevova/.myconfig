@@ -1,11 +1,8 @@
-"**************************************************************************
-"                               VIM SETTINGS
-"**************************************************************************
-
-"**************************************************************************
-" ### Plugins
-"**************************************************************************
-
+" #########################################
+" # Volodymyr Gula's VIM configuration
+" ##########################################
+" # Plugins
+" ##########################################
 " Required:
 set runtimepath+=~/.vim/bundle/neobundle.vim/
 call neobundle#begin(expand('~/.vim/bundle/'))
@@ -18,7 +15,7 @@ else
   NeoBundle 'roxma/nvim-yarp'
   NeoBundle 'roxma/vim-hug-neovim-rpc'
 endif
-let g:deoplete#enable_at_startup = 1
+  let g:deoplete#enable_at_startup = 1
 
 " Appearance
 NeoBundle 'KeitaNakamura/neodark.vim'                " colorscheme & syntax highlighting
@@ -29,6 +26,7 @@ NeoBundle 'ntpeters/vim-better-whitespace'           " highlights trailing white
 NeoBundle 'Raimondi/delimitMate'                     " automatic closing of quotes
 NeoBundle 'rhysd/vim-grammarous'                     " grammar checker based on LanguageTool
 NeoBundle 'Bling/vim-airline'                        " status-bar
+NeoBundle 'vim-airline/vim-airline-themes'
   set laststatus=2
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#branch#enabled = 0
@@ -39,13 +37,10 @@ NeoBundle 'Bling/vim-airline'                        " status-bar
   let g:airline_right_sep = ''
   let g:airline_right_alt_sep = ''
 NeoBundle 'Asheq/close-buffers.vim'                  " helpful plugin to work with buffers
-nmap <leader>q :CloseBuffers<CR>
+  nmap <leader>q :CloseBuffers<CR>
 NeoBundle 'direnv/direnv.vim'
 NeoBundle 'blueyed/vim-diminactive'                    " dim inactive windows
   " let g:diminactive_use_syntax = 1                     " dim inactive syntax
-" NeoBundle 'ryanoasis/vim-devicons'                     " icons for files
-  " let g:webdevicons_conceal_nerdtree_brackets = 1
-  " let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
 
 " NeoBundle 'w0rp/ale'                                 " async linter
 "   let g:ale_linters = {
@@ -102,11 +97,6 @@ NeoBundle 'junegunn/vim-easy-align'                  " align tool
 NeoBundle 'tpope/vim-endwise'                        " autocomplete end blocks
 NeoBundle 'AndrewRadev/splitjoin.vim'                " brake code expression into multiple lines
 NeoBundle 'majutsushi/tagbar'                        " shows tags
-
-  " " Vim-Alchemist Configuration
-  " let g:alchemist#elixir_erlang_src = "/Users/amacgregor/Projects/Github/alchemist-source"
-  " let g:alchemist_tag_disable = 1
-
   " Elixir Tagbar Configuration
   let g:tagbar_type_elixir = {
       \ 'ctagstype' : 'elixir',
@@ -131,6 +121,7 @@ NeoBundle 'majutsushi/tagbar'                        " shows tags
 NeoBundle 'elixir-editors/vim-elixir'                " support for elixir
 NeoBundle 'slashmili/alchemist.vim'                  " uses ElixirSense to give inside information about your elixir project
   let g:alchemist#elixir_erlang_src = "/usr/local/share/src"
+  " let g:alchemist_tag_disable = 1
 NeoBundle 'janko/vim-test'                           " a Vim wrapper for running tests on different granularities.
   " these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
   nmap <silent> t<C-n> :TestNearest<CR>
@@ -275,11 +266,15 @@ NeoBundle 'mxw/vim-jsx'
 NeoBundle 'altercation/vim-colors-solarized'         " colorscheme
 NeoBundle 'powerman/vim-plugin-AnsiEsc'              " shows files with ANSI escape sequences
 NeoBundle 'morhetz/gruvbox'
-NeoBundle 'dracula/dracula-theme'
+NeoBundle 'dracula/vim', { 'as': 'dracula' }
 NeoBundle 'AlessandroYorba/Sierra'
 NeoBundle 'colepeters/spacemacs-theme.vim'
 NeoBundle 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 
+" This should be last
+NeoBundle 'ryanoasis/vim-devicons'                     " icons for files
+  let g:webdevicons_conceal_nerdtree_brackets = 1
+  " let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
 call neobundle#end()
 
 " Required:
@@ -289,16 +284,17 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 
-"**************************************************************************
-" ### General configs
-"**************************************************************************
+" ##########################################
+" # General configs
+" ##########################################
 
-syntax enable
+" syntax brakes devicons rulles
+" syntax enable
 colorscheme neodark
 " set background=dark
 " colorscheme solarized
 
-" set shell=zsh              " set shell
+set shell=zsh                       " set shell
 set re=1                            " syntax highlighting enhancements
 set nu                              " enable left numbers
 set rnu                             " relative line numbers
@@ -309,11 +305,10 @@ set nowritebackup                   " turn off backup files
 set clipboard+=unnamedplus          " use system clipboard
 set fillchars=vert:\                " disable vert div chars
 set cursorline                      " highlight the cursor screen line #performance issues
-" set cursorcolumn                    " highlight the cursor screen line
+set cursorcolumn                    " highlight the cursor screen line
 set scrolloff=3                     " minimal number of screen lines to keep above and below the cursor
 set spell spelllang=en_us           " spellchecker
 set colorcolumn=120                 " right margin
-
 set ttyfast                         " Improve vim's scrolling speed
 set splitbelow                      " split new horizontal tab bellow
 set splitright                      " split new vertical tab right
@@ -332,17 +327,12 @@ set backspace=2                     " make backspace work like most other apps
 set fillchars+=vert:│               " sets vertical separator as it is in tmux
 set hidden                          " hidden mode for buffers
 
-" To speed vim
-" set nocursorline
-" set lazyredraw
-" set synmaxcol=200
-
-highlight Comment cterm=italic      " italic comments
+highlight Comment cterm=italic gui=italic
 let &showbreak='↪ '                 " break symbol
 
-"**************************************************************************
-" ### Key Settings
-"**************************************************************************
+" ##########################################
+" # Key Settings
+" ##########################################
 
 let mapleader = ","
 let g:mapleader = ","
@@ -395,13 +385,9 @@ nnoremap <s-tab> za
 " copy selected word into search input
 vnoremap /s y/<C-R>"<CR>
 
-" <Leader>r -- Cycle through relativenumber + number, number (only), and no
-" numbering (mnemonic: relative).
-" nnoremap <silent> <Leader>r :call Cycle_numbering()<CR>
-
-" **************************************************************************
-" ### Other settings
-" **************************************************************************
+" ##########################################
+" # Other settings
+" ##########################################
 
 " Remove trailing whitespaces
 au BufWritePre * :%s/\s\+$//e
@@ -462,5 +448,3 @@ function! StatusTime()
   let ti = strftime("  %k:%M ")
   return ti
 endfunction
-
-" **************************************************************************
