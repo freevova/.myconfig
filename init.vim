@@ -102,6 +102,33 @@ NeoBundle 'junegunn/vim-easy-align'                  " align tool
   xmap ga <Plug>(EasyAlign)                          " Start interactive EasyAlign in visual mode (e.g. vipga)
 NeoBundle 'tpope/vim-endwise'                        " autocomplete end blocks
 NeoBundle 'AndrewRadev/splitjoin.vim'                " brake code expression into multiple lines
+NeoBundle 'majutsushi/tagbar'                        " shows tags
+NeoBundle 'mmorearty/elixir-ctags'                   " shows tags for elixir
+" NeoBundle 'jakedouglas/exuberant-ctags'
+
+  " " Vim-Alchemist Configuration
+  " let g:alchemist#elixir_erlang_src = "/Users/amacgregor/Projects/Github/alchemist-source"
+  " let g:alchemist_tag_disable = 1
+
+  " Elixir Tagbar Configuration
+  let g:tagbar_type_elixir = {
+      \ 'ctagstype' : 'elixir',
+      \ 'kinds' : [
+          \ 'f:functions',
+          \ 'functions:functions',
+          \ 'c:callbacks',
+          \ 'd:delegates',
+          \ 'e:exceptions',
+          \ 'i:implementations',
+          \ 'a:macros',
+          \ 'o:operators',
+          \ 'm:modules',
+          \ 'p:protocols',
+          \ 'r:records',
+          \ 't:tests'
+      \ ]
+      \ }
+  noremap tt :TagbarToggle<CR>
 
 " Elixir
 NeoBundle 'elixir-editors/vim-elixir'                " support for elixir
@@ -163,9 +190,17 @@ NeoBundle 'rking/ag.vim'                             " search through the conten
     endif
 NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " search file by name
 NeoBundle 'junegunn/fzf.vim'                                           " search files by name
-  nnoremap <s-f> :FZF<CR>
   nnoremap <Leader>b :Buffers<CR>
+  nnoremap <Leader>f :GFiles<CR>
+  nnoremap <Leader>F :Files<CR>
+  nnoremap <Leader>h :History<CR>
+  nnoremap <Leader>H :Helptags!<CR>
+  nnoremap <Leader>l :BLines<CR>
+  nnoremap <Leader>L :Lines<CR>
+  nnoremap <Leader>M :Maps<CR>
   nnoremap <Leader>t :BTags<CR>
+  nnoremap <Leader>T :Tags<CR>
+  nnoremap <Leader>' :Marks<CR>
 
   " Customize fzf colors to match your color scheme
   let g:fzf_colors =
@@ -323,7 +358,7 @@ imap jj <ESC>
 "
 " move between buffers by tab
 nmap <Tab> :bnext<CR>
-nmap <C-Tab> :bprev<CR>
+nmap <C-S-Tab> :bprev<CR>
 
 " navigate between splits
 nnoremap <C-J> <C-W><C-J>
@@ -370,6 +405,11 @@ if has('folding')
   set foldlevelstart=99               " start unfolded
 endif
 
+" Show proper termguicolors
+if (has("termguicolors"))
+  set termguicolors
+endif
+
 " Cycle through relativenumber + number, number (only), and no numbering.
 function! Cycle_numbering() abort
   if exists('+relativenumber')
@@ -385,9 +425,9 @@ function! Cycle_numbering() abort
 endfunction
 
 augroup BgHighlight
-    autocmd!
-    autocmd WinEnter * set number
-    autocmd WinLeave * set nonumber
+  autocmd!
+  autocmd WinEnter * set number
+  autocmd WinLeave * set nonumber
 augroup END
 
 " bufferline and statusline
@@ -397,21 +437,21 @@ hi StatusTime    guifg=#022b35  guibg=#a1aba8  gui=NONE  ctermfg=NONE  ctermbg=N
 hi StatusPercent guifg=#022b35  guibg=#798883  gui=NONE  ctermfg=NONE  ctermbg=NONE cterm=NONE
 
 function! StatusNumbers()
-    let min = 15
-    let c = virtcol('.')
-    let l = line('.')
-    let t = line('$')
-    let status = ' '.c.':'.l.' L'.t.' '
-    let n = strlen(status)
-    if min > n
-        let status = repeat(' ', min - n) . status
-    endif
-    return status
+  let min = 15
+  let c = virtcol('.')
+  let l = line('.')
+  let t = line('$')
+  let status = ' '.c.':'.l.' L'.t.' '
+  let n = strlen(status)
+  if min > n
+      let status = repeat(' ', min - n) . status
+  endif
+  return status
 endfunction
 
 function! StatusTime()
-    let ti = strftime("  %k:%M ")
-    return ti
+  let ti = strftime("  %k:%M ")
+  return ti
 endfunction
 
 " **************************************************************************

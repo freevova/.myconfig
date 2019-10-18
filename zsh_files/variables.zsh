@@ -11,7 +11,8 @@ export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 
 export MY_ZSH="$HOME/.zshrc"
 export MY_TMUX="$HOME/.tmux.conf"
-export TERM=xterm-256color
+[[ $TMUX = "" ]] && export TERM="xterm-256color"
+[[ $TMUX != "" ]] && export TERM="screen-256color"
 export BAT_THEME="TwoDark"
 
 ##########################################
