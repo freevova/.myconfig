@@ -23,7 +23,6 @@ let g:deoplete#enable_at_startup = 1
 " Appearance
 NeoBundle 'KeitaNakamura/neodark.vim'                " colorscheme & syntax highlighting
   let g:airline_theme='neodark'
-NeoBundle 'altercation/vim-colors-solarized'         " colorscheme
 NeoBundle 'Yggdroot/indentLine'                      " prints vertical lines at each indentation level
   let g:indentLine_char = '¦'
 NeoBundle 'ntpeters/vim-better-whitespace'           " highlights trailing whitespaces
@@ -103,8 +102,6 @@ NeoBundle 'junegunn/vim-easy-align'                  " align tool
 NeoBundle 'tpope/vim-endwise'                        " autocomplete end blocks
 NeoBundle 'AndrewRadev/splitjoin.vim'                " brake code expression into multiple lines
 NeoBundle 'majutsushi/tagbar'                        " shows tags
-NeoBundle 'mmorearty/elixir-ctags'                   " shows tags for elixir
-" NeoBundle 'jakedouglas/exuberant-ctags'
 
   " " Vim-Alchemist Configuration
   " let g:alchemist#elixir_erlang_src = "/Users/amacgregor/Projects/Github/alchemist-source"
@@ -134,7 +131,6 @@ NeoBundle 'mmorearty/elixir-ctags'                   " shows tags for elixir
 NeoBundle 'elixir-editors/vim-elixir'                " support for elixir
 NeoBundle 'slashmili/alchemist.vim'                  " uses ElixirSense to give inside information about your elixir project
   let g:alchemist#elixir_erlang_src = "/usr/local/share/src"
-
 NeoBundle 'janko/vim-test'                           " a Vim wrapper for running tests on different granularities.
   " these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
   nmap <silent> t<C-n> :TestNearest<CR>
@@ -144,6 +140,10 @@ NeoBundle 'janko/vim-test'                           " a Vim wrapper for running
   nmap <silent> t<C-g> :TestVisit<CR>
   " let test#strategy = "vtr"
   let test#strategy = "tslime"
+NeoBundle 'mattreduce/vim-mix'
+NeoBundle 'mhinz/vim-mix-format'                     " introduced the formatter: mix format
+  let g:mix_format_on_save = 1
+NeoBundle 'mmorearty/elixir-ctags'                   " shows tags for elixir
 
 " TMUX
 NeoBundle 'zaiste/tmux.vim'
@@ -270,6 +270,15 @@ NeoBundle 'mxw/vim-jsx'
 "       \ 'jinja'      : 1,
 "       \ 'javascript' : 1,
 "       \}
+
+" Themes
+NeoBundle 'altercation/vim-colors-solarized'         " colorscheme
+NeoBundle 'powerman/vim-plugin-AnsiEsc'              " shows files with ANSI escape sequences
+NeoBundle 'morhetz/gruvbox'
+NeoBundle 'dracula/dracula-theme'
+NeoBundle 'AlessandroYorba/Sierra'
+NeoBundle 'colepeters/spacemacs-theme.vim'
+NeoBundle 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 
 call neobundle#end()
 
