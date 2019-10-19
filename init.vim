@@ -266,15 +266,16 @@ NeoBundle 'mxw/vim-jsx'
 NeoBundle 'altercation/vim-colors-solarized'         " colorscheme
 NeoBundle 'powerman/vim-plugin-AnsiEsc'              " shows files with ANSI escape sequences
 NeoBundle 'morhetz/gruvbox'
-NeoBundle 'dracula/vim', { 'as': 'dracula' }
 NeoBundle 'AlessandroYorba/Sierra'
 NeoBundle 'colepeters/spacemacs-theme.vim'
 NeoBundle 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+NeoBundle 'dracula/vim', { 'as': 'dracula' }
 
 " This should be last
 NeoBundle 'ryanoasis/vim-devicons'                     " icons for files
-  let g:webdevicons_conceal_nerdtree_brackets = 1
-  " let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
+  " let g:webdevicons_conceal_nerdtree_brackets = 1
+  let g:DevIconsEnableFoldersOpenClose = 1
+
 call neobundle#end()
 
 " Required:
@@ -290,7 +291,8 @@ NeoBundleCheck
 
 " syntax brakes devicons rulles
 " syntax enable
-colorscheme neodark
+" colorscheme neodark
+colorscheme dracula
 " set background=dark
 " colorscheme solarized
 

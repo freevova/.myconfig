@@ -20,5 +20,3 @@
 
 # # fzf configuration
 export FZF_DEFAULT_OPTS='--height 40% --preview "bat --color=always {}"'
-source "/usr/share/fzf/completion.zsh"
-source "/usr/share/fzf/key-bindings.zsh"
