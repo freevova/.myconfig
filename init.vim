@@ -268,8 +268,9 @@ NeoBundle 'powerman/vim-plugin-AnsiEsc'              " shows files with ANSI esc
 NeoBundle 'morhetz/gruvbox'
 NeoBundle 'AlessandroYorba/Sierra'
 NeoBundle 'colepeters/spacemacs-theme.vim'
+NeoBundle 'ajh17/Spacegray.vim'
 NeoBundle 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
-NeoBundle 'dracula/vim', { 'as': 'dracula' }
+" NeoBundle 'dracula/vim', { 'as': 'dracula' }
 
 " This should be last
 NeoBundle 'ryanoasis/vim-devicons'                     " icons for files
@@ -292,7 +293,8 @@ NeoBundleCheck
 " syntax brakes devicons rulles
 " syntax enable
 " colorscheme neodark
-colorscheme dracula
+" colorscheme dracula
+colorscheme spacegray
 " set background=dark
 " colorscheme solarized
 
