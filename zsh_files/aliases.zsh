@@ -24,13 +24,12 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias ~="cd ~" # `cd` is probably faster to type though
-alias to=". gotodir"
+alias to="z"
 
 ##########################################
 # Utility aliases
 ##########################################
-alias svim="sudo vim"
+alias svim="sudo nvim"
 alias history-stat="history | awk '{print \$2}' | sort | uniq -c | sort -n -r | head"
 alias o="open ."
 alias jobs="jobs -l"
