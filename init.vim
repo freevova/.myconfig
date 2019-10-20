@@ -91,9 +91,12 @@ NeoBundle 'Lokaltog/vim-easymotion'                  " number | letter motions f
   " Type <Leader><Leader>w(<Plug>(easymotion-w)) to trigger the word motion
   " Type <Leader><Leader>fo(<Plug>(easymotion-w)) to trigger the word motion
 NeoBundle 'junegunn/vim-easy-align'                  " align tool
-  vmap <Enter> <Plug>(EasyAlign)                     " align on Enter
-  nmap ga <Plug>(EasyAlign) "<Paste>                 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-  xmap ga <Plug>(EasyAlign)                          " Start interactive EasyAlign in visual mode (e.g. vipga)
+  " align on Enter
+  vmap <Enter> <Plug>(EasyAlign)
+  " Start interactive EasyAlign in visual mode (e.g. vipga)
+  xmap ga <Plug>(EasyAlign)
+  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+  nmap ga <Plug>(EasyAlign)
 NeoBundle 'tpope/vim-endwise'                        " autocomplete end blocks
 NeoBundle 'AndrewRadev/splitjoin.vim'                " brake code expression into multiple lines
 NeoBundle 'majutsushi/tagbar'                        " shows tags
