@@ -37,7 +37,7 @@ NeoBundle 'vim-airline/vim-airline-themes'
   let g:airline_right_sep = ''
   let g:airline_right_alt_sep = ''
 NeoBundle 'Asheq/close-buffers.vim'                  " helpful plugin to work with buffers
-  nmap <leader>q :CloseBuffers<CR>
+  nmap <leader>q :Bdelete menu<CR>
 NeoBundle 'direnv/direnv.vim'
 NeoBundle 'blueyed/vim-diminactive'                    " dim inactive windows
   " let g:diminactive_use_syntax = 1                     " dim inactive syntax
@@ -63,6 +63,7 @@ NeoBundle 'blueyed/vim-diminactive'                    " dim inactive windows
 " " let g:ale_elixir_elixir_ls_release='/home/vova/.config/elixir-ls/release'
 
 " General editing
+NeoBundle 'dhruvasagar/vim-zoom'                     " zooming vim window splits
 NeoBundle 'tpope/vim-surround'                       " for manipulation with quotes :)
 NeoBundle 'tomtom/tcomment_vim'                      " commenter
   nnoremap // :TComment<CR>
@@ -144,6 +145,11 @@ NeoBundle 'zaiste/tmux.vim'
 NeoBundle 'jgdavey/tslime.vim'                       " runs test commands in a tmux pane you specify.
   let g:tslime_always_current_session = 1            " run in current session
 NeoBundle 'christoomey/vim-tmux-navigator'           " allow you to move between Vim panes and tmux splits
+  " navigate between splits
+  " nnoremap <C-J> <C-W><C-J>
+  " nnoremap <C-K> <C-W><C-K>
+  " nnoremap <C-L> <C-W><C-L>
+  " nnoremap <C-H> <C-W><C-H>
 " NeoBundle 'christoomey/vim-tmux-runner'              " command runner for sending commands from vim to tmux
 NeoBundle 'benmills/vimux'                           " runs commands from vim in the tmux
 " prompt for a command to run
@@ -366,12 +372,6 @@ imap jj <ESC>
 nmap <Tab> :bnext<CR>
 nmap <C-S-Tab> :bprev<CR>
 
-" navigate between splits
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
 " navigate through autocomplete menu ()
 inoremap <C-k> <C-Up>
 inoremap <C-j> <C-Down>
@@ -387,7 +387,6 @@ nnoremap <silent> p p`]
 " Toggle fold at current position.
 " (Using s-tab to avoid collision between <tab> and <C-i>).
 nnoremap <s-tab> za
-
 
 " copy selected word into search input
 vnoremap /s y/<C-R>"<CR>

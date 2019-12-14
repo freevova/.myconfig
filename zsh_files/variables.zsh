@@ -14,6 +14,7 @@ export MY_TMUX="$HOME/.tmux.conf"
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
 [[ $TMUX != "" ]] && export TERM="screen-256color"
 export BAT_THEME="TwoDark"
+export NVIM_LISTEN_ADDRESS="/tmp/nvimsocket"
 
 ##########################################
 # Setting up the Paths

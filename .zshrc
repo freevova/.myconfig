@@ -19,6 +19,7 @@ plugins=(
   docker
   git
   github
+  heroku
   history-substring-search
   man
   mix
@@ -53,23 +54,23 @@ if [ -e ~/.secrets ]; then
 fi
 
 # Load the FZF completion
-if [ -e ~/.myconfigs/zsh_files/fzf.zsh ]; then
-  source ~/.myconfigs/zsh_files/fzf.zsh
+if [ -e ~/.myconfig/zsh_files/fzf.zsh ]; then
+  source ~/.myconfig/zsh_files/fzf.zsh
 fi
 
 # Load the Variables file
-if [ -e ~/.myconfigs/zsh_files/variables.zsh ]; then
-  source ~/.myconfigs/zsh_files/variables.zsh
+if [ -e ~/.myconfig/zsh_files/variables.zsh ]; then
+  source ~/.myconfig/zsh_files/variables.zsh
 fi
 
 # Load the Aliases file
-if [ -e ~/.myconfigs/zsh_files/aliases.zsh ]; then
-  source ~/.myconfigs/zsh_files/aliases.zsh
+if [ -e ~/.myconfig/zsh_files/aliases.zsh ]; then
+  source ~/.myconfig/zsh_files/aliases.zsh
 fi
 
 # Load the Functions file
-if [ -e ~/.myconfigs/zsh_files/functions.zsh ]; then
-  source ~/.myconfigs/zsh_files/functions.zsh
+if [ -e ~/.myconfig/zsh_files/functions.zsh ]; then
+  source ~/.myconfig/zsh_files/functions.zsh
 fi
 
 #########################################
@@ -106,6 +107,17 @@ echo "2019 12 31" | awk '{dt=mktime($0 " 00 00 00")-systime(); print "There are 
 # direnv configuration
 command -v direnv >/dev/null && {
   eval "$(direnv hook zsh)"
+}
+
+# Color output in console
+man() {
+    LESS_TERMCAP_md=$'\e[01;31m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;44;33m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    command man "$@"
 }
 
 # Run info about OS

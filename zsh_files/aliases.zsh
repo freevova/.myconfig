@@ -15,7 +15,7 @@ alias reload!="source $MY_ZSH"
 ##########################################
 # .myconfigs aliasies
 ##########################################
-alias myconfigs="cd ~/.myconfigs && $EDITOR"
+alias myconfigs="cd ~/.myconfig && $EDITOR"
 
 ##########################################
 # Easier Navigation aliases
@@ -29,6 +29,7 @@ alias to="z"
 ##########################################
 # Utility aliases
 ##########################################
+# alias nvim="NVIM_LISTEN_ADDRESS=$NVIM_LISTEN_ADDRESS nvim"
 alias svim="sudo nvim"
 alias history-stat="history | awk '{print \$2}' | sort | uniq -c | sort -n -r | head"
 alias o="open ."
