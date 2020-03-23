@@ -11,31 +11,37 @@ export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 
 export MY_ZSH="$HOME/.zshrc"
 export MY_TMUX="$HOME/.tmux.conf"
-[[ $TMUX = "" ]] && export TERM="xterm-256color"
-[[ $TMUX != "" ]] && export TERM="screen-256color"
-export BAT_THEME="TwoDark"
+
+# Set $TERM variable
+[[ $TMUX = "" ]] && export TERM="xterm-256color-italic"
+[[ $TMUX != "" ]] && export TERM="tmux-256color"
+# [[ $TMUX = "" ]] && export TERM="xterm-256color"
+# [[ $TMUX != "" ]] && export TERM="screen-256color"
+
+# export BAT_THEME="TwoDark"
+
 export NVIM_LISTEN_ADDRESS="/tmp/nvimsocket"
 
 ##########################################
 # Setting up the Paths
 ##########################################
-TMUXIFIERPATH="$HOME/.tmuxifier"
-ASDFPATH="$HOME/.asdf"
+TMUXIFIER_PATH="$HOME/.tmuxifier"
+ASDF_PATH="$HOME/.asdf"
+STYLISH_HASKELL_PATH="$ASDF_PATH/installs/haskell/8.6.3/bin"
 # POWERLINE_PATH="$HOME/Projects/Utilities/powerline"
 # BASE16_SHELL="$HOME/.config/base16-shell/"
 
 ##########################################
 # Setting up the Bin Paths
 ##########################################
-TMUXIFIERBINPATH="$TMUXIFIERPATH/bin"
+TMUXIFIER_BIN_PATH="$TMUXIFIER_PATH/bin"
 # ELIXIRBINPATH ="$ASDFPATH/installs/elixir/1.8.1-otp-21/bin"
-HOMEBIN="$HOME/bin"
-SBINPATH="/usr/local/sbin"
+HOME_BIN="$HOME/bin"
+SBIN_PATH="/usr/local/sbin"
 
 # export TMUXIFIER_LAYOUT_PATH="$HOME/.tmuxifier_layouts"
 
 ##########################################
 # Build and Export the PATH
 ##########################################
-export PATH="$TMUXIFIERBINPATH:$HOMEBIN:$SBINPATH:$PATH"
-
+export PATH="$TMUXIFIER_BIN_PATH:$HOME_BIN:$SBIN_PATH:$ASDF_PATH:$STYLISH_HASKELL_PATH:$PATH"

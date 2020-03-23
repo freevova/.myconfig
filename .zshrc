@@ -13,7 +13,11 @@ ZSH_THEME="bullet-train"
 ZSH_AUTOSUGGEST_STRATEGY=match_prev_cmd
 # ZSH_TMUX_AUTOSTART='true'
 
-BULLETTRAIN_PROMPT_ORDER=(dir nvm elixir git)
+BULLETTRAIN_PROMPT_ORDER=(dir elixir git)
+BULLETTRAIN_DIR_CONTEXT_SHOW=true
+BULLETTRAIN_DIR_EXTENDED=0
+
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root)
 
 plugins=(
   docker
@@ -82,9 +86,10 @@ export ZSH_CUSTOM
 #########################################
 # MARK:Sourcing
 #########################################
-source "$HOME/.oh-my-zsh/lib/key-bindings.zsh"
-source "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-source "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$ZSH/lib/key-bindings.zsh"
+source "$ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$ZSH/plugins/history-substring-search/history-substring-search.zsh"
+source "$ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "/usr/share/fzf/completion.zsh"
 source "/usr/share/fzf/key-bindings.zsh"
 

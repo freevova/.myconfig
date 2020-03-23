@@ -18,10 +18,11 @@ endif
   let g:deoplete#enable_at_startup = 1
 
 " Appearance
-NeoBundle 'KeitaNakamura/neodark.vim'                " colorscheme & syntax highlighting
-  let g:airline_theme='neodark'
+" NeoBundle 'KeitaNakamura/neodark.vim'                " colorscheme & syntax highlighting
+"   let g:airline_theme='neodark'
 NeoBundle 'Yggdroot/indentLine'                      " prints vertical lines at each indentation level
   let g:indentLine_char = '¦'
+NeoBundle 'itchyny/vim-cursorword'                   " underlines words matching cursor word
 NeoBundle 'ntpeters/vim-better-whitespace'           " highlights trailing whitespaces
 NeoBundle 'Raimondi/delimitMate'                     " automatic closing of quotes
 NeoBundle 'rhysd/vim-grammarous'                     " grammar checker based on LanguageTool
@@ -32,6 +33,7 @@ NeoBundle 'vim-airline/vim-airline-themes'
   let g:airline#extensions#branch#enabled = 0
   let g:airline_powerline_fonts = 1
   let g:airline_theme='neodark'
+  " let g:airline_theme='tomorrow'
   let g:airline_left_sep = ''
   let g:airline_left_alt_sep = ''
   let g:airline_right_sep = ''
@@ -45,7 +47,7 @@ NeoBundle 'blueyed/vim-diminactive'                    " dim inactive windows
 " NeoBundle 'w0rp/ale'                                 " async linter
 "   let g:ale_linters = {
 "   \  'ruby':       ['ruby', 'reek', 'rubocop', 'brakeman', 'rails_best_practices'],
-"   \  'elixir': ['credo', 'dialyxir', 'elixir-ls', 'mix'],
+"   \  'elisdfxir': ['credo', 'dialyxir', 'elixir-ls', 'mix'],
 "   \  'javascript': ['eslint'],
 "   \}
 "   let g:ale_fixers = {
@@ -191,8 +193,8 @@ NeoBundle 'rking/ag.vim'                             " search through the conten
 NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " search file by name
 NeoBundle 'junegunn/fzf.vim'                                           " search files by name
   nnoremap <Leader>b :Buffers<CR>
-  nnoremap <Leader>f :GFiles<CR>
   nnoremap <Leader>F :Files<CR>
+  nnoremap <Leader>f :GFiles<CR>
   nnoremap <Leader>h :History<CR>
   nnoremap <Leader>H :Helptags!<CR>
   nnoremap <Leader>l :BLines<CR>
@@ -220,6 +222,7 @@ NeoBundle 'junegunn/fzf.vim'                                           " search 
 " GIT
 NeoBundle 'airblade/vim-gitgutter'                   " GIT commands
 NeoBundle 'tpope/vim-fugitive'                       " the best Git wrapper
+NeoBundle 'tpope/vim-rhubarb'                        " for Gbrowse command
 
 " File manager
 NeoBundle 'scrooloose/nerdtree'                      " File manager
@@ -279,7 +282,8 @@ NeoBundle 'AlessandroYorba/Sierra'
 NeoBundle 'colepeters/spacemacs-theme.vim'
 NeoBundle 'ajh17/Spacegray.vim'
 NeoBundle 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
-" NeoBundle 'dracula/vim', { 'as': 'dracula' }
+NeoBundle 'dracula/vim', { 'as': 'dracula' }
+NeoBundle 'iCyMind/NeoSolarized'
 
 " This should be last
 NeoBundle 'ryanoasis/vim-devicons'                     " icons for files
@@ -299,13 +303,10 @@ NeoBundleCheck
 " # General configs
 " ##########################################
 
-" syntax brakes devicons rulles
 " syntax enable
-" colorscheme neodark
-" colorscheme dracula
-colorscheme spacegray
-" set background=dark
-" colorscheme solarized
+colorscheme NeoSolarized
+set background=light
+highlight Comment cterm=italic gui=italic
 
 set shell=zsh                       " set shell
 set re=1                            " syntax highlighting enhancements
@@ -340,7 +341,6 @@ set backspace=2                     " make backspace work like most other apps
 set fillchars+=vert:│               " sets vertical separator as it is in tmux
 set hidden                          " hidden mode for buffers
 
-highlight Comment cterm=italic gui=italic
 let &showbreak='↪ '                 " break symbol
 
 " ##########################################
@@ -370,7 +370,7 @@ imap jj <ESC>
 "
 " move between buffers by tab
 nmap <Tab> :bnext<CR>
-nmap <C-S-Tab> :bprev<CR>
+nmap <Space> :bprev<CR>
 
 " navigate through autocomplete menu ()
 inoremap <C-k> <C-Up>
