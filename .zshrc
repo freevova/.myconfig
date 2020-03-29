@@ -1,4 +1,4 @@
-#########################################
+##########################################
 # Volodymyr Gula's ZSH configuration
 ##########################################
 
@@ -17,7 +17,7 @@ BULLETTRAIN_PROMPT_ORDER=(dir elixir git)
 BULLETTRAIN_DIR_CONTEXT_SHOW=true
 BULLETTRAIN_DIR_EXTENDED=0
 
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root)
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root)
 
 plugins=(
   docker
@@ -54,7 +54,7 @@ fi
 
 # Load the secrets file
 if [ -e ~/.secrets ]; then
-     source ~/.secrets
+  source ~/.secrets
 fi
 
 # Load the FZF completion
@@ -81,7 +81,6 @@ fi
 # Exports
 #########################################
 export ZSH_CUSTOM
-# export PATH=$HOME/.asdf/installs/elixir/1.8.1-otp-21/bin:$PATH
 
 #########################################
 # MARK:Sourcing

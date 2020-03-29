@@ -1,3 +1,5 @@
 .tool-versions
 init_tmux.sh
 tags
+nvim/bundle/*
+nvim/plugged/*

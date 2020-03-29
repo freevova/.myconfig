@@ -3,6 +3,7 @@
 " ##########################################
 " # Plugins
 " ##########################################
+
 " Required:
 set runtimepath+=~/.vim/bundle/neobundle.vim/
 call neobundle#begin(expand('~/.vim/bundle/'))
@@ -18,36 +19,52 @@ endif
   let g:deoplete#enable_at_startup = 1
 
 " Appearance
-" NeoBundle 'KeitaNakamura/neodark.vim'                " colorscheme & syntax highlighting
-"   let g:airline_theme='neodark'
-NeoBundle 'Yggdroot/indentLine'                      " prints vertical lines at each indentation level
-  let g:indentLine_char = '¦'
-NeoBundle 'itchyny/vim-cursorword'                   " underlines words matching cursor word
-NeoBundle 'ntpeters/vim-better-whitespace'           " highlights trailing whitespaces
-NeoBundle 'Raimondi/delimitMate'                     " automatic closing of quotes
-NeoBundle 'rhysd/vim-grammarous'                     " grammar checker based on LanguageTool
-NeoBundle 'Bling/vim-airline'                        " status-bar
+" NeoBundle 'Yggdroot/indentLine'                                     " prints vertical lines at each indentation level
+"   let g:indentLine_char = '¦'
+NeoBundle 'nathanaelkane/vim-indent-guides'                           " prints vertical lines at each indentation level
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_color_change_percent = 1
+let g:indent_guides_exclude_filetypes = ['help', 'startify', 'fzf', 'openterm', 'neoterm', 'calendar']
+NeoBundle 'psliwka/vim-smoothie'                                      " nicer scrolling
+NeoBundle 'camspiers/animate.vim'                                     " animation plugin
+  let g:animate#easing_func = 'animate#ease_out_quad'
+" NeoBundle 'camspiers/lens.vim'                                        " window resizing plugin
+"   let g:lens#height_resize_min = 15
+NeoBundle 'airblade/vim-rooter'                                       " auto-root setting
+  let g:rooter_patterns = ['docker-compose.yml', '.git/']
+  let g:rooter_silent_chdir = 1
+NeoBundle 'dhruvasagar/vim-table-mode'                                " better handling for tables in markdown
+  let g:table_mode_corner = '|'
+NeoBundle 'itchyny/vim-cursorword'                                    " underlines words matching cursor word
+NeoBundle 'ntpeters/vim-better-whitespace'                            " highlights trailing whitespaces
+NeoBundle 'cohama/lexima.vim'                                         " automatic closing of quotes
+NeoBundle 'rhysd/vim-grammarous'                                      " grammar checker based on LanguageTool
+NeoBundle 'Bling/vim-airline'                                         " status-bar
 NeoBundle 'vim-airline/vim-airline-themes'
   set laststatus=2
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#branch#enabled = 0
+  let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
   let g:airline_powerline_fonts = 1
   let g:airline_theme='neodark'
-  " let g:airline_theme='tomorrow'
   let g:airline_left_sep = ''
   let g:airline_left_alt_sep = ''
   let g:airline_right_sep = ''
   let g:airline_right_alt_sep = ''
-NeoBundle 'Asheq/close-buffers.vim'                  " helpful plugin to work with buffers
+NeoBundle 'Asheq/close-buffers.vim'                                   " helpful plugin to work with buffers
   nmap <leader>q :Bdelete menu<CR>
 NeoBundle 'direnv/direnv.vim'
-NeoBundle 'blueyed/vim-diminactive'                    " dim inactive windows
-  " let g:diminactive_use_syntax = 1                     " dim inactive syntax
+NeoBundle 'blueyed/vim-diminactive'                                   " dim inactive windows
+  " let g:diminactive_use_syntax = 1                                  " dim inactive syntax
+NeoBundle 'itchyny/calendar.vim'                                      " nice calendar app
+NeoBundle 'dhruvasagar/vim-zoom'                                      " zooming vim window splits
 
 " NeoBundle 'w0rp/ale'                                 " async linter
 "   let g:ale_linters = {
 "   \  'ruby':       ['ruby', 'reek', 'rubocop', 'brakeman', 'rails_best_practices'],
-"   \  'elisdfxir': ['credo', 'dialyxir', 'elixir-ls', 'mix'],
+"   \  'elixir':     ['credo', 'dialyxir', 'elixir-ls', 'mix'],
 "   \  'javascript': ['eslint'],
 "   \}
 "   let g:ale_fixers = {
@@ -65,17 +82,31 @@ NeoBundle 'blueyed/vim-diminactive'                    " dim inactive windows
 " " let g:ale_elixir_elixir_ls_release='/home/vova/.config/elixir-ls/release'
 
 " General editing
-NeoBundle 'dhruvasagar/vim-zoom'                     " zooming vim window splits
-NeoBundle 'tpope/vim-surround'                       " for manipulation with quotes :)
-NeoBundle 'tomtom/tcomment_vim'                      " commenter
+NeoBundle 'kassio/neoterm'                                            " REPL integration
+  let g:neoterm_default_mod = 'botright'
+  let g:neoterm_autojump = 1
+  " Use gx{text-object} in normal mode
+  nmap <Leader>tt <Plug>(neoterm-repl-send)
+  " Send selected contents in visual mode.
+  xmap <Leader>tt <Plug>(neoterm-repl-send)
+NeoBundle 'matze/vim-move'                                            " move lines
+NeoBundle 'wellle/targets.vim'                                        " move text objects SURROUTD
+NeoBundle 'tpope/vim-surround'                                        " for manipulation with quotes :)
+NeoBundle 'tomtom/tcomment_vim'                                       " commenter
   nnoremap // :TComment<CR>
   vnoremap // :TComment<CR>
-NeoBundle 'AndrewRadev/switch.vim'                   " useful switcher
+NeoBundle 'AndrewRadev/switch.vim'                                    " useful switcher
   let g:switch_mapping = "-"
-NeoBundle 'terryma/vim-multiple-cursors'             " ability to edit with multiple cursors
-NeoBundle 'Chiel92/vim-autoformat'                   " install ruby-beautify gem
+  let g:switch_custom_definitions =
+        \ [
+        \   ['required', 'optional'],
+        \   ['assert', 'refute'],
+        \   ['and', 'or']
+        \ ]
+NeoBundle 'terryma/vim-multiple-cursors'                              " ability to edit with multiple cursors
+NeoBundle 'Chiel92/vim-autoformat'                                    " install ruby-beautify gem
   noremap === :Autoformat<CR>
-NeoBundle 'bkad/CamelCaseMotion'                     " uses CamelCase jumps
+NeoBundle 'bkad/CamelCaseMotion'                                      " uses CamelCase jumps
   map <silent> w <Plug>CamelCaseMotion_w
   map <silent> b <Plug>CamelCaseMotion_b
   map <silent> e <Plug>CamelCaseMotion_e
@@ -84,8 +115,8 @@ NeoBundle 'bkad/CamelCaseMotion'                     " uses CamelCase jumps
   sunmap b
   sunmap e
   sunmap ge
-NeoBundle 'kshenoy/vim-signature'                    " plugin to place, toggle and display marks.
-NeoBundle 'Lokaltog/vim-easymotion'                  " number | letter motions for vim
+NeoBundle 'kshenoy/vim-signature'                                     " plugin to place, toggle and display marks.
+NeoBundle 'Lokaltog/vim-easymotion'                                   " number | letter motions for vim
   let g:EasyMotion_smartcase = 1
   map  / <Plug>(easymotion-sn)
   omap / <Plug>(easymotion-tn)
@@ -93,16 +124,16 @@ NeoBundle 'Lokaltog/vim-easymotion'                  " number | letter motions f
   map N <Plug>(easymotion-prev)
   " Type <Leader><Leader>w(<Plug>(easymotion-w)) to trigger the word motion
   " Type <Leader><Leader>fo(<Plug>(easymotion-w)) to trigger the word motion
-NeoBundle 'junegunn/vim-easy-align'                  " align tool
+NeoBundle 'junegunn/vim-easy-align'                                   " align tool
   " align on Enter
   vmap <Enter> <Plug>(EasyAlign)
   " Start interactive EasyAlign in visual mode (e.g. vipga)
   xmap ga <Plug>(EasyAlign)
   " Start interactive EasyAlign for a motion/text object (e.g. gaip)
   nmap ga <Plug>(EasyAlign)
-NeoBundle 'tpope/vim-endwise'                        " autocomplete end blocks
-NeoBundle 'AndrewRadev/splitjoin.vim'                " brake code expression into multiple lines
-NeoBundle 'majutsushi/tagbar'                        " shows tags
+NeoBundle 'tpope/vim-endwise'                                         " autocomplete end blocks
+NeoBundle 'AndrewRadev/splitjoin.vim'                                 " brake code expression into multiple lines
+NeoBundle 'majutsushi/tagbar'                                         " shows tags
   " Elixir Tagbar Configuration
   let g:tagbar_type_elixir = {
       \ 'ctagstype' : 'elixir',
@@ -124,12 +155,11 @@ NeoBundle 'majutsushi/tagbar'                        " shows tags
   noremap tt :TagbarToggle<CR>
 
 " Elixir
-NeoBundle 'elixir-editors/vim-elixir'                " support for elixir
-NeoBundle 'slashmili/alchemist.vim'                  " uses ElixirSense to give inside information about your elixir project
+NeoBundle 'elixir-editors/vim-elixir'                                 " support for elixir
+NeoBundle 'slashmili/alchemist.vim'                                   " uses ElixirSense to give inside information about your elixir project
   let g:alchemist#elixir_erlang_src = "/usr/local/share/src"
   " let g:alchemist_tag_disable = 1
-NeoBundle 'janko/vim-test'                           " a Vim wrapper for running tests on different granularities.
-  " these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
+NeoBundle 'janko/vim-test'                                            " a Vim wrapper for running tests on different granularities.
   nmap <silent> t<C-n> :TestNearest<CR>
   nmap <silent> t<C-f> :TestFile<CR>
   nmap <silent> t<C-s> :TestSuite<CR>
@@ -137,23 +167,17 @@ NeoBundle 'janko/vim-test'                           " a Vim wrapper for running
   nmap <silent> t<C-g> :TestVisit<CR>
   " let test#strategy = "vtr"
   let test#strategy = "tslime"
-NeoBundle 'mattreduce/vim-mix'
-NeoBundle 'mhinz/vim-mix-format'                     " introduced the formatter: mix format
+NeoBundle 'mattreduce/vim-mix'                                        " plugin for using Elixir's build tool, mix
+NeoBundle 'mhinz/vim-mix-format'                                      " introduced the formatter: mix format
   let g:mix_format_on_save = 1
-NeoBundle 'mmorearty/elixir-ctags'                   " shows tags for elixir
+NeoBundle 'mmorearty/elixir-ctags'                                    " shows tags for elixir
 
 " TMUX
 NeoBundle 'zaiste/tmux.vim'
-NeoBundle 'jgdavey/tslime.vim'                       " runs test commands in a tmux pane you specify.
-  let g:tslime_always_current_session = 1            " run in current session
-NeoBundle 'christoomey/vim-tmux-navigator'           " allow you to move between Vim panes and tmux splits
-  " navigate between splits
-  " nnoremap <C-J> <C-W><C-J>
-  " nnoremap <C-K> <C-W><C-K>
-  " nnoremap <C-L> <C-W><C-L>
-  " nnoremap <C-H> <C-W><C-H>
-" NeoBundle 'christoomey/vim-tmux-runner'              " command runner for sending commands from vim to tmux
-NeoBundle 'benmills/vimux'                           " runs commands from vim in the tmux
+NeoBundle 'jgdavey/tslime.vim'                                        " runs test commands in a tmux pane you specify.
+  let g:tslime_always_current_session = 1                             " run in current session
+NeoBundle 'christoomey/vim-tmux-navigator'                            " allow you to move between Vim panes and tmux splits
+NeoBundle 'benmills/vimux'                                            " runs commands from vim in the tmux
 " prompt for a command to run
   map <Leader>vp :VimuxPromptCommand<CR>
 
@@ -161,7 +185,7 @@ NeoBundle 'benmills/vimux'                           " runs commands from vim in
 NeoBundle 'neovimhaskell/haskell-vim'
 
 " Finders
-NeoBundle 'rking/ag.vim'                             " search through the content
+NeoBundle 'rking/ag.vim'                                              " search through the content
   if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
     map <Leader>g :Ag<Space>
@@ -202,7 +226,7 @@ NeoBundle 'junegunn/fzf.vim'                                           " search 
   nnoremap <Leader>M :Maps<CR>
   nnoremap <Leader>t :BTags<CR>
   nnoremap <Leader>T :Tags<CR>
-  nnoremap <Leader>' :Marks<CR>
+  " nnoremap <Leader>' :Marks<CR>
 
   " Customize fzf colors to match your color scheme
   let g:fzf_colors =
@@ -220,18 +244,21 @@ NeoBundle 'junegunn/fzf.vim'                                           " search 
     \ 'header':  ['fg', 'Comment'] }
 
 " GIT
-NeoBundle 'airblade/vim-gitgutter'                   " GIT commands
-NeoBundle 'tpope/vim-fugitive'                       " the best Git wrapper
-NeoBundle 'tpope/vim-rhubarb'                        " for Gbrowse command
+NeoBundle 'airblade/vim-gitgutter'                                   " GIT commands
+NeoBundle 'tpope/vim-fugitive'                                       " the best Git wrapper
+NeoBundle 'tpope/vim-rhubarb'                                        " for Gbrowse command
+NeoBundle 'samoshkin/vim-mergetool'                                  " merge tool for git
+  let g:mergetool_layout = 'bmr'
+  let g:mergetool_prefer_revision = 'local'
+NeoBundle 'wincent/vcs-jump'                                         " jump to git things
+  nnoremap <Leader>+ :VcsJump diff<CR>
 
 " File manager
-NeoBundle 'scrooloose/nerdtree'                      " File manager
+NeoBundle 'scrooloose/nerdtree'                                      " File manager
   map <C-p> :NERDTreeToggle<CR>
   map <C-f> :NERDTreeFind<CR>
-  autocmd FileType nerdtree setlocal relativenumber  " make sure relative line numbers are used
-  let NERDTreeShowLineNumbers=1                      " enable line numbers
-  let NERDTreeCascadeSingleChildDir=0                " for folder embeding
-  let NERDTreeShowHidden=1                           " show hidden files
+  let NERDTreeCascadeSingleChildDir=0                                " for folder embeding
+  let NERDTreeShowHidden=1                                           " show hidden files
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
   let g:NERDTreeIndicatorMapCustom = {
       \ "Modified"  : "✹",
@@ -246,37 +273,16 @@ NeoBundle 'Xuyuanp/nerdtree-git-plugin'
       \ "Unknown"   : "?"
       \ }
 
-" " Ruby/Rails
-" NeoBundle 'tpope/vim-rails'                          " for working with Ruby on Rails applications
-" NeoBundle 'joker1007/vim-ruby-heredoc-syntax'        " highlights HEREDOC syntax
-" NeoBundle 'vim-ruby/vim-ruby'
-" NeoBundle 'thoughtbot/vim-rspec'
-"   map <Leader>t :call RunCurrentSpecFile()<CR>
-"   map <Leader>s :call RunNearestSpec()<CR>
-"   map <Leader>l :call RunLastSpec()<CR>
-"   map <Leader>a :call RunAllSpecs()<CR>
-"   let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")' " command to run<Paste>
-" NeoBundle 'victorfeijo/binding-pry-vim'
-
 " JS, HTML, CSS
 NeoBundle 'slime-lang/vim-slime-syntax'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'mxw/vim-jsx'
-" NeoBundle 'gorodinskiy/vim-coloresque'               " shows colors by names(conflicts with alchemist)
 " NeoBundle 'elzr/vim-json'
-" NeoBundle 'Valloric/MatchTagAlways'                  " highlight XML/HTML tags that enclose your cursor location
-"   let g:mta_filetypes = {
-"       \ 'html'       : 1,
-"       \ 'xhtml'      : 1,
-"       \ 'xml'        : 1,
-"       \ 'jinja'      : 1,
-"       \ 'javascript' : 1,
-"       \}
 
 " Themes
-NeoBundle 'altercation/vim-colors-solarized'         " colorscheme
-NeoBundle 'powerman/vim-plugin-AnsiEsc'              " shows files with ANSI escape sequences
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'powerman/vim-plugin-AnsiEsc'
 NeoBundle 'morhetz/gruvbox'
 NeoBundle 'AlessandroYorba/Sierra'
 NeoBundle 'colepeters/spacemacs-theme.vim'
@@ -284,9 +290,10 @@ NeoBundle 'ajh17/Spacegray.vim'
 NeoBundle 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 NeoBundle 'dracula/vim', { 'as': 'dracula' }
 NeoBundle 'iCyMind/NeoSolarized'
+NeoBundle 'KeitaNakamura/neodark.vim'
 
 " This should be last
-NeoBundle 'ryanoasis/vim-devicons'                     " icons for files
+NeoBundle 'ryanoasis/vim-devicons'                                   " icons for files
   " let g:webdevicons_conceal_nerdtree_brackets = 1
   let g:DevIconsEnableFoldersOpenClose = 1
 
@@ -299,13 +306,14 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 
+
 " ##########################################
 " # General configs
 " ##########################################
 
 " syntax enable
 colorscheme NeoSolarized
-set background=light
+set background=dark
 highlight Comment cterm=italic gui=italic
 
 set shell=zsh                       " set shell
@@ -343,6 +351,7 @@ set hidden                          " hidden mode for buffers
 
 let &showbreak='↪ '                 " break symbol
 
+
 " ##########################################
 " # Key Settings
 " ##########################################
@@ -350,24 +359,17 @@ let &showbreak='↪ '                 " break symbol
 let mapleader = ","
 let g:mapleader = ","
 
-" Turn off arrow keys (this might not be a good idea for beginners,
-" but it is
-" the best way to ween yourself of arrow keys on to hjkl)
-" http://yehudakatz.com/2010/07/29/everyone-who-tried-to-convince-me-to-use-vim-was-wrong/
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>"
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
+" Remap arrows to resize
+nnoremap <silent> <Up>    :call animate#window_delta_height(15)<CR>
+nnoremap <silent> <Down>  :call animate#window_delta_height(-15)<CR>
+nnoremap <silent> <Left>  :call animate#window_delta_width(30)<CR>
+nnoremap <silent> <Right> :call animate#window_delta_width(-30)<CR>
 
 " Map ESC
 imap jj <ESC>
 " move between splits by tab
 " nnoremap <Tab> <C-w>w
-"
+
 " move between buffers by tab
 nmap <Tab> :bnext<CR>
 nmap <Space> :bprev<CR>
@@ -391,6 +393,82 @@ nnoremap <s-tab> za
 " copy selected word into search input
 vnoremap /s y/<C-R>"<CR>
 
+
+" ##########################################
+" # Custom functions
+" ##########################################
+
+" Open lazygit
+nnoremap <silent> <Leader>' :call openterm#horizontal('lazygit', 0.8)<CR>
+
+" Opens calendar with animation
+function! OpenCalendar() abort
+  new | wincmd J | resize 1
+  call animate#window_percent_height(0.8)
+  call timer_start(300, {id -> execute('Calendar -position=here')})
+endfunction
+
+" Cycle through relativenumber + number, number (only), and no numbering.
+nnoremap <silent> <Leader>r :call Cycle_numbering()<CR>
+function! Cycle_numbering() abort
+  if exists('+relativenumber')
+    execute {
+          \ '00': 'set relativenumber   | set number',
+          \ '01': 'set norelativenumber | set number',
+          \ '10': 'set norelativenumber | set nonumber',
+          \ '11': 'set norelativenumber | set number' }[&number . &relativenumber]
+  else
+    " No relative numbering, just toggle numbers on and off.
+    set number!<CR>
+  endif
+endfunction
+
+ " Pomodoro timer, example: "25 5 25 5" will run a timer for 25mins, ding then
+" 5mins, ding, then 25mins ding, then 5mins, ding
+function! TogglePomodoro() abort
+  call inputsave()
+  let time = input("Units> ")
+  call inputrestore()
+  normal :<ESC>
+  if time == ""
+    silent execute "!vim-timer stop"
+  else
+    " Don't listen to hang up signal and background, basic daemonization
+    call system("nohup vim-timer " . time . " &")
+  endif
+endfunction
+
+" Create vsplit
+nnoremap <silent> <Leader>\| :call Vsplit()<CR>
+" Creates a vsplit in an animated fashion
+function! Vsplit() abort
+  vsplit
+  call NaturalVerticalDrawer()
+endfunction
+
+" Create hsplit
+nnoremap <silent> <Leader>- :call Split()<CR>
+" Creates a split with animation
+function! Split() abort
+  split
+  call NaturalDrawer()
+endfunction
+
+" Creates a drawer effect that respects the natural height
+function! NaturalDrawer() abort
+  let height = winheight(0)
+  resize 1
+  call animate#window_absolute_height(height)
+endfunction
+
+" Creates a drawer effect that respects the natural width
+function! NaturalVerticalDrawer() abort
+  let width = winwidth(0)
+  vertical resize 1
+  call animate#window_absolute_width(width)
+endfunction
+
+
 " ##########################################
 " # Other settings
 " ##########################################
@@ -411,46 +489,31 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-" Cycle through relativenumber + number, number (only), and no numbering.
-function! Cycle_numbering() abort
-  if exists('+relativenumber')
-    execute {
-          \ '00': 'set relativenumber   | set number',
-          \ '01': 'set norelativenumber | set number',
-          \ '10': 'set norelativenumber | set nonumber',
-          \ '11': 'set norelativenumber | set number' }[&number . &relativenumber]
-  else
-    " No relative numbering, just toggle numbers on and off.
-    set number!<CR>
-  endif
-endfunction
-
-augroup BgHighlight
+" Quit term buffer with ESC
+augroup TermHandling
   autocmd!
-  autocmd WinEnter * set number
-  autocmd WinLeave * set nonumber
+  " Turn off line numbers, listchars, auto enter insert mode and map esc to
+  " exit insert mode
+  if has('nvim')
+    autocmd TermOpen * setlocal listchars= nonumber norelativenumber nowrap winfixwidth laststatus=0 noshowmode noruler
+    autocmd TermOpen * startinsert | autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+    autocmd TermOpen * let g:last_open_term_id = b:terminal_job_id
+  endif
+  " Define ESC to be SIGTERM
+  autocmd! FileType fzf tnoremap <Esc> <c-c>
+  autocmd! FileType fzf call RefreshFZFPreview()
+  autocmd! FileType neoterm wincmd J | call NaturalDrawer()
 augroup END
 
-" bufferline and statusline
-hi ActiveBuffer  guifg=#f6f3e8  guibg=#2e8ccf  gui=NONE  ctermfg=NONE  ctermbg=NONE cterm=NONE
-hi StatusNumbers guifg=#022b35  guibg=#83948f  gui=NONE  ctermfg=NONE  ctermbg=NONE cterm=NONE
-hi StatusTime    guifg=#022b35  guibg=#a1aba8  gui=NONE  ctermfg=NONE  ctermbg=NONE cterm=NONE
-hi StatusPercent guifg=#022b35  guibg=#798883  gui=NONE  ctermfg=NONE  ctermbg=NONE cterm=NONE
 
-function! StatusNumbers()
-  let min = 15
-  let c = virtcol('.')
-  let l = line('.')
-  let t = line('$')
-  let status = ' '.c.':'.l.' L'.t.' '
-  let n = strlen(status)
-  if min > n
-      let status = repeat(' ', min - n) . status
-  endif
-  return status
-endfunction
-
-function! StatusTime()
-  let ti = strftime("  %k:%M ")
-  return ti
-endfunction
+" ##########################################
+" # Auto Commands
+" ##########################################
+" Uncategorized autocmds
+augroup General
+  autocmd!
+  autocmd! FileType markdown,txt silent TableModeEnable
+  " Neoterm repl setup {{{
+  autocmd FileType sh call neoterm#repl#set('sh')
+  " }}}
+augroup END
