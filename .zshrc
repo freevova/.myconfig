@@ -4,6 +4,8 @@
 
 # Path to your oh-my-zsh configuration.
 ZSH=~/.oh-my-zsh
+# # Path to your oh-my-zsh configuration.
+ZSH="$HOME/.oh-my-zsh"
 ZSH_CUSTOM="$ZSH/custom"
 
 # Set name of the theme to load.
@@ -41,7 +43,6 @@ plugins=(
   zsh-completions
   zsh-more-completions
   zsh-syntax-highlighting
-  tmuxinator
 )
 
 ##########################################
