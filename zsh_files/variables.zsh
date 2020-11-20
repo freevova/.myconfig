@@ -22,6 +22,9 @@ export MY_TMUX="$HOME/.tmux.conf"
 
 export NVIM_LISTEN_ADDRESS="/tmp/nvimsocket"
 
+# This is to used to open files with NVIM using IEx.Helpers.open/1
+export ELIXIR_EDITOR="tmux split-window -- nvim + __LINE__ __FILE__"
+
 ##########################################
 # Setting up the Paths
 ##########################################
@@ -35,6 +38,8 @@ STYLISH_HASKELL_PATH="$ASDF_PATH/installs/haskell/8.6.3/bin"
 # Setting up the Bin Paths
 ##########################################
 TMUXIFIER_BIN_PATH="$TMUXIFIER_PATH/bin"
+# TMUXINATOR_PATH="$ZSH_CUSTOM/_tmuxinator"
+HOME_BIN_PATH="$HOME/.bin"
 # ELIXIRBINPATH ="$ASDFPATH/installs/elixir/1.8.1-otp-21/bin"
 HOME_BIN="$HOME/bin"
 SBIN_PATH="/usr/local/sbin"
@@ -44,4 +49,4 @@ SBIN_PATH="/usr/local/sbin"
 ##########################################
 # Build and Export the PATH
 ##########################################
-export PATH="$TMUXIFIER_BIN_PATH:$HOME_BIN:$SBIN_PATH:$ASDF_PATH:$STYLISH_HASKELL_PATH:$PATH"
+export PATH="$TMUXIFIER_BIN_PATH:$HOME_BIN:$SBIN_PATH:$ASDF_PATH:$STYLISH_HASKELL_PATH:$HOME_BIN_PATH:$PATH"

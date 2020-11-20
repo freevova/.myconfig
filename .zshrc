@@ -3,25 +3,13 @@
 ##########################################
 
 # Path to your oh-my-zsh configuration.
-ZSH=~/.oh-my-zsh
-# # Path to your oh-my-zsh configuration.
 ZSH="$HOME/.oh-my-zsh"
 ZSH_CUSTOM="$ZSH/custom"
-
-# Set name of the theme to load.
-ZSH_THEME="bullet-train"
-# ZSH_THEME="robbyrussell"
-
 ZSH_AUTOSUGGEST_STRATEGY=match_prev_cmd
-# ZSH_TMUX_AUTOSTART='true'
-
-BULLETTRAIN_PROMPT_ORDER=(dir elixir git)
-BULLETTRAIN_DIR_CONTEXT_SHOW=true
-BULLETTRAIN_DIR_EXTENDED=0
-
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root)
 
 plugins=(
+  asdf
   docker
   git
   github
@@ -44,6 +32,7 @@ plugins=(
   zsh-more-completions
   zsh-syntax-highlighting
 )
+
 
 ##########################################
 # Load External configurationf files
@@ -78,10 +67,6 @@ if [ -e ~/.myconfig/zsh_files/functions.zsh ]; then
   source ~/.myconfig/zsh_files/functions.zsh
 fi
 
-#########################################
-# Exports
-#########################################
-export ZSH_CUSTOM
 
 #########################################
 # MARK:Sourcing
@@ -93,8 +78,6 @@ source "$ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "/usr/share/fzf/completion.zsh"
 source "/usr/share/fzf/key-bindings.zsh"
 
-#has all my aliases and functions
-source ${ZSH_CUSTOM}/tmuxinator.zsh
 
 ##########################################
 # Environment setups
@@ -103,16 +86,13 @@ source ${ZSH_CUSTOM}/tmuxinator.zsh
 # Motivation reminder
 echo "2019 12 31" | awk '{dt=mktime($0 " 00 00 00")-systime(); print "There are " int(dt/86400/7) " weeks left until the year ends. What will you do?";}'
 
-# Load asdf configuration
-[[ -d "$HOME/.asdf" ]] && {
-  source $HOME/.asdf/asdf.sh
-  source $HOME/.asdf/completions/asdf.bash
-}
-
 # direnv configuration
 command -v direnv >/dev/null && {
   eval "$(direnv hook zsh)"
 }
+
+# starship configuration
+eval "$(starship init zsh)"
 
 # Color output in console
 man() {
