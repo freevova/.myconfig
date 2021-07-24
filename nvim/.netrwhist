@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/vova/projects/prosapient-platform/apps'
+let g:netrw_dirhist_2='/home/vova/projects/prosapient-platform/apps/pt'
+let g:netrw_dirhist_1='/home/vova/projects/prosapient-platform/apps/pt/lib'
+let g:netrw_dirhist_0='/home/vova/projects/prosapient-platform/apps/pt'
+let g:netrw_dirhist_9='/home/vova/projects/prosapient-platform/apps'
+let g:netrw_dirhist_8='/home/vova/projects/prosapient-platform'
+let g:netrw_dirhist_7='/home/vova/projects/prosapient-platform/apps/pt/lib/pt'
+let g:netrw_dirhist_6='/home/vova/projects/prosapient-platform/apps/pt/lib/pt/accounts'
+let g:netrw_dirhist_5='/home/vova/projects/prosapient-platform/apps/pt/lib/pt'
+let g:netrw_dirhist_4='/home/vova/projects/prosapient-platform/apps/pt/lib'

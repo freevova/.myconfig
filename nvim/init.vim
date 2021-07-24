@@ -32,8 +32,8 @@ NeoBundle 'camspiers/animate.vim'                                     " animatio
   let g:animate#easing_func = 'animate#ease_out_quad'
 " NeoBundle 'camspiers/lens.vim'                                        " window resizing plugin
 "   let g:lens#height_resize_min = 15
-" NeoBundle 'dhruvasagar/vim-table-mode'                                " better handling for tables in markdown
-"   let g:table_mode_corner = '|'
+NeoBundle 'dhruvasagar/vim-table-mode'                                " better handling for tables in markdown
+  let g:table_mode_corner = '|'
 NeoBundle 'RRethy/vim-illuminate'                                     " underlines words matching cursor word
 NeoBundle 'ntpeters/vim-better-whitespace'                            " highlights trailing whitespaces
 " NeoBundle 'rhysd/vim-grammarous'                                      " grammar checker based on LanguageTool
@@ -68,11 +68,13 @@ NeoBundle 'wsdjeg/vim-fetch'                                          " open fil
 NeoBundle 'cohama/lexima.vim'                                         " automatic closing of quotes
 NeoBundle 'Asheq/close-buffers.vim'                                   " helpful plugin to work with buffers
   nmap <leader>q :Bdelete menu<CR>
-NeoBundle 'wellle/targets.vim'                                        " move text objects SURROUTD
-NeoBundle 'tpope/vim-surround'                                        " for manipulation with quotes :)
 NeoBundle 'tomtom/tcomment_vim'                                       " commenter
   nnoremap // :TComment<CR>
   vnoremap // :TComment<CR>
+NeoBundle 'Chiel92/vim-autoformat'                                    " install ruby-beautify gem
+  noremap === :Autoformat<CR>
+NeoBundle 'wellle/targets.vim'                                        " move text objects SURROUTD
+NeoBundle 'tpope/vim-surround'                                        " for manipulation with quotes :)
 NeoBundle 'AndrewRadev/switch.vim'                                    " useful switcher
   let g:switch_mapping = "-"
   let g:switch_custom_definitions =
@@ -83,8 +85,6 @@ NeoBundle 'AndrewRadev/switch.vim'                                    " useful s
         \ ]
 
 NeoBundle 'mg979/vim-visual-multi', {'branch': 'master'}              " ability to edit with multiple cursors
-NeoBundle 'Chiel92/vim-autoformat'                                    " install ruby-beautify gem
-  noremap === :Autoformat<CR>
 NeoBundle 'bkad/CamelCaseMotion'                                      " uses CamelCase jumps
   map <silent> w <Plug>CamelCaseMotion_w
   map <silent> b <Plug>CamelCaseMotion_b
@@ -101,8 +101,6 @@ NeoBundle 'Lokaltog/vim-easymotion'                                   " number |
   omap / <Plug>(easymotion-tn)
   map  n <Plug>(easymotion-next)
   map N <Plug>(easymotion-prev)
-  " Type <Leader><Leader>w(<Plug>(easymotion-w)) to trigger the word motion
-  " Type <Leader><Leader>fo(<Plug>(easymotion-w)) to trigger the word motion
 NeoBundle 'junegunn/vim-easy-align'                                   " align tool
   " align on Enter
   vmap <Enter> <Plug>(EasyAlign)
@@ -110,8 +108,8 @@ NeoBundle 'junegunn/vim-easy-align'                                   " align to
   xmap ga <Plug>(EasyAlign)
   " Start interactive EasyAlign for a motion/text object (e.g. gaip)
   nmap ga <Plug>(EasyAlign)
-NeoBundle 'tpope/vim-endwise'                                         " autocomplete end blocks
 NeoBundle 'AndrewRadev/splitjoin.vim'                                 " brake code expression into multiple lines
+" NeoBundle 'mmorearty/elixir-ctags'                                    " shows tags for elixir
 NeoBundle 'majutsushi/tagbar'                                         " shows tags
   " Elixir Tagbar Configuration
   let g:tagbar_type_elixir = {
@@ -135,6 +133,36 @@ NeoBundle 'majutsushi/tagbar'                                         " shows ta
 
 " Finders
 NeoBundle 'brooth/far.vim'                                            " find and replace text through multiple file
+NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " search file by name
+NeoBundle 'junegunn/fzf.vim'                                           " search files by name
+  nnoremap <Leader>b :Buffers<CR>
+  nnoremap <Leader>F :Files<CR>
+  nnoremap <Leader>f :GFiles<CR>
+  nnoremap <Leader>g :Rg<CR>
+  nnoremap <Leader>h :History<CR>
+  nnoremap <Leader>H :Helptags!<CR>
+  nnoremap <Leader>l :BLines<CR>
+  nnoremap <Leader>L :Lines<CR>
+  nnoremap <Leader>M :Maps<CR>
+  nnoremap <Leader>t :BTags<CR>
+  nnoremap <Leader>T :Tags<CR>
+  " nnoremap <Leader>' :Marks<CR>
+
+  " Customize fzf colors to match your color scheme
+  let g:fzf_colors =
+  \ { 'fg':      ['fg', 'Normal'],
+    \ 'bg':      ['bg', 'Normal'],
+    \ 'hl':      ['fg', 'Comment'],
+    \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+    \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+    \ 'hl+':     ['fg', 'Statement'],
+    \ 'info':    ['fg', 'PreProc'],
+    \ 'prompt':  ['fg', 'Conditional'],
+    \ 'pointer': ['fg', 'Exception'],
+    \ 'marker':  ['fg', 'Keyword'],
+    \ 'spinner': ['fg', 'Label'],
+    \ 'header':  ['fg', 'Comment'] }
+
 NeoBundle 'rking/ag.vim'                                              " search through the content
   if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
@@ -164,34 +192,6 @@ NeoBundle 'rking/ag.vim'                                              " search t
         nnoremap \ :Ag<SPACE>
       endif
     endif
-NeoBundle 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " search file by name
-NeoBundle 'junegunn/fzf.vim'                                           " search files by name
-  nnoremap <Leader>b :Buffers<CR>
-  nnoremap <Leader>F :Files<CR>
-  nnoremap <Leader>f :GFiles<CR>
-  nnoremap <Leader>h :History<CR>
-  nnoremap <Leader>H :Helptags!<CR>
-  nnoremap <Leader>l :BLines<CR>
-  nnoremap <Leader>L :Lines<CR>
-  nnoremap <Leader>M :Maps<CR>
-  nnoremap <Leader>t :BTags<CR>
-  nnoremap <Leader>T :Tags<CR>
-  " nnoremap <Leader>' :Marks<CR>
-
-  " Customize fzf colors to match your color scheme
-  let g:fzf_colors =
-  \ { 'fg':      ['fg', 'Normal'],
-    \ 'bg':      ['bg', 'Normal'],
-    \ 'hl':      ['fg', 'Comment'],
-    \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-    \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-    \ 'hl+':     ['fg', 'Statement'],
-    \ 'info':    ['fg', 'PreProc'],
-    \ 'prompt':  ['fg', 'Conditional'],
-    \ 'pointer': ['fg', 'Exception'],
-    \ 'marker':  ['fg', 'Keyword'],
-    \ 'spinner': ['fg', 'Label'],
-    \ 'header':  ['fg', 'Comment'] }
 
 " GIT
 NeoBundle 'airblade/vim-gitgutter'                                   " GIT commands
@@ -200,8 +200,6 @@ NeoBundle 'tpope/vim-rhubarb'                                        " for Gbrow
 NeoBundle 'samoshkin/vim-mergetool'                                  " merge tool for git
   let g:mergetool_layout = 'bmr'
   let g:mergetool_prefer_revision = 'local'
-NeoBundle 'wincent/vcs-jump'                                         " jump to git things
-  nnoremap <Leader>+ :VcsJump diff<CR>
 
 " File manager
 " NeoBundle 'scrooloose/nerdtree'                                      " File manager
@@ -234,24 +232,32 @@ NeoBundle 'benmills/vimux'                                            " runs com
 " prompt for a command to run
   map <Leader>vp :VimuxPromptCommand<CR>
 
-" Elixir
+" Languages
+NeoBundle 'vim-syntastic/syntastic'                                   " a syntax checking plugin
+  set statusline+=%#warningmsg#
+  set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%*
+  let g:syntastic_auto_loc_list = 0
+  let g:syntastic_check_on_open = 1
+  let g:syntastic_check_on_wq = 0
+  let g:syntastic_elixir_checkers = ['elixir']
+  let g:syntastic_enable_elixir_checker = 0
+NeoBundle 'MarcWeber/vim-addon-mw-utils'                              " support for textual snippets
+NeoBundle 'tomtom/tlib_vim'                                           " support for textual snippets
+NeoBundle 'garbas/vim-snipmate'                                       " support for textual snippets
+
 NeoBundle 'elixir-editors/vim-elixir'                                 " support for elixir
 NeoBundle 'slashmili/alchemist.vim'                                   " uses ElixirSense to give inside information about your elixir project
-  " let g:alchemist#elixir_erlang_src="/usr/local/share/src"
-  " let g:alchemist_tag_disable = 1
+  let g:alchemist#elixir_erlang_src="/usr/local/share/src"
 NeoBundle 'janko/vim-test'                                            " a Vim wrapper for running tests on different granularities.
   nmap <silent> t<C-n> :TestNearest<CR>
   nmap <silent> t<C-f> :TestFile<CR>
   nmap <silent> t<C-s> :TestSuite<CR>
   nmap <silent> t<C-l> :TestLast<CR>
   nmap <silent> t<C-g> :TestVisit<CR>
-  " let test#strategy = "vtr"
   let test#strategy = "tslime"
 NeoBundle 'mhinz/vim-mix-format'                                      " introduced the formatter: mix format
   let g:mix_format_on_save = 1
-" NeoBundle 'mmorearty/elixir-ctags'                                    " shows tags for elixir
-
-" Haskell
 NeoBundle 'neovimhaskell/haskell-vim'
   let g:haskell_classic_highlighting = 1
   let g:haskell_indent_if = 3
@@ -265,8 +271,6 @@ NeoBundle 'neovimhaskell/haskell-vim'
   let g:haskell_indent_guard = 2
   let g:haskell_indent_case_alternative = 1
   let g:cabal_indent_section = 2
-
-" JS, HTML, CSS
 NeoBundle 'slime-lang/vim-slime-syntax'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'pangloss/vim-javascript'
@@ -348,7 +352,7 @@ set fillchars+=vert:│               " sets vertical separator as it is in tmux
 set hidden                          " hidden mode for buffers
 set diffopt+=vertical               " split buffers vertically
 
-let &showbreak='↪ '                 " break symbol
+" let &showbreak='↪ '                 " break symbol
 
 
 " ##########################################
@@ -460,6 +464,12 @@ function! NaturalVerticalDrawer() abort
   call animate#window_absolute_width(width)
 endfunction
 
+" " Opens calendar with animation
+" function! OpenCalendar() abort
+"   new | wincmd J | resize 1
+"   call animate#window_percent_height(0.8)
+"   call timer_start(300, {id -> execute('Calendar -position=here')})
+" endfunction
 
 " ##########################################
 " # Other settings
@@ -496,6 +506,23 @@ augroup TermHandling
   autocmd! FileType neoterm wincmd J | call NaturalDrawer()
 augroup END
 
+" " To detect whether you're in merge mode now
+" function! AirlineDiffmergePart()
+"   if get(g:, 'mergetool_in_merge_mode', 0)
+"     return '↸'
+"   endif
+"
+"   if &diff
+"     return '↹'
+"   endif
+"
+"   return ''
+" endfunction
+"
+" call airline#parts#define_function('_diffmerge', 'AirlineDiffmergePart')
+" call airline#parts#define_accent('_diffmerge', 'bold')
+"
+" let g:airline_section_z = airline#section#create(['_diffmerge'])
 
 " ##########################################
 " # Auto Commands

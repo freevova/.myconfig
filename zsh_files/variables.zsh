@@ -31,22 +31,17 @@ export ELIXIR_EDITOR="tmux split-window -- nvim + __LINE__ __FILE__"
 TMUXIFIER_PATH="$HOME/.tmuxifier"
 ASDF_PATH="$HOME/.asdf"
 STYLISH_HASKELL_PATH="$ASDF_PATH/installs/haskell/8.6.3/bin"
-# POWERLINE_PATH="$HOME/Projects/Utilities/powerline"
-# BASE16_SHELL="$HOME/.config/base16-shell/"
+PROTOC_PATH="$HOME/.asdf/installs/elixir/1.11.3-otp-23/.mix/escripts"
 
 ##########################################
 # Setting up the Bin Paths
 ##########################################
 TMUXIFIER_BIN_PATH="$TMUXIFIER_PATH/bin"
-# TMUXINATOR_PATH="$ZSH_CUSTOM/_tmuxinator"
 HOME_BIN_PATH="$HOME/.bin"
-# ELIXIRBINPATH ="$ASDFPATH/installs/elixir/1.8.1-otp-21/bin"
 HOME_BIN="$HOME/bin"
 SBIN_PATH="/usr/local/sbin"
-
-# export TMUXIFIER_LAYOUT_PATH="$HOME/.tmuxifier_layouts"
 
 ##########################################
 # Build and Export the PATH
 ##########################################
-export PATH="$TMUXIFIER_BIN_PATH:$HOME_BIN:$SBIN_PATH:$ASDF_PATH:$STYLISH_HASKELL_PATH:$HOME_BIN_PATH:$PATH"
+export PATH="$TMUXIFIER_BIN_PATH:$HOME_BIN:$SBIN_PATH:$ASDF_PATH:$STYLISH_HASKELL_PATH:$HOME_BIN_PATH:$PROTOC_PATH:$PATH"
