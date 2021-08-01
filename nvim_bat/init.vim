@@ -16,7 +16,7 @@ else
   NeoBundle 'roxma/vim-hug-neovim-rpc'
 endif
   let g:deoplete#enable_at_startup = 1
-  " let g:deoplete#complete_method = "omnifunc"
+  let g:deoplete#complete_method = "omnifunc"
 
 " Appearance
 NeoBundle 'nathanaelkane/vim-indent-guides'                           " prints vertical lines at each indentation level

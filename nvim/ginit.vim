@@ -1,6 +1,13 @@
-" Guifont xos4\ Terminess\ Powerline:h14
-" Guifont! TerminessTTF Nerd Font:h10
-" GuiFont xos4\ Terminus:h14
-" GuiFont! Roboto Mono for Powerline:h10.5
-GuiFont! JetBrains Mono Medium:h10.1
-GuiTabline 0
+" if neovim-qt
+if exists('g:GuiFont')
+  " GuiFont InputMonoNarrow ExLight:h12
+  " GuiFont JetBrainsMonoMedium Nerd Font Mono:14
+  " with ! to suppress warning Font \"Terminus\" reports bad fixed pitch
+  " metrics
+  " GuiFont! Terminus:h14
+  GuiFont JetBrains Mono Medium:h10.1
+  GuiTabline 0
+  GuiPopupmenu 0
+end
+
+
