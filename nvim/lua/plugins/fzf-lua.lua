@@ -3,6 +3,7 @@ return function()
   vim.api.nvim_set_keymap("n", "<Leader>F", ":lua require('fzf-lua').files({ fzf_layout = 'reverse-list' })<CR>", {noremap = true})
   vim.api.nvim_set_keymap("n", "<Leader>f", ":lua require('fzf-lua').git_files({ fzf_layout = 'reverse-list' })<CR>", {noremap = true})
   vim.api.nvim_set_keymap("n", "<Leader>g", ":lua require('fzf-lua').grep({ fzf_layout = 'reverse-list' })<CR>", {noremap = true})
+  vim.api.nvim_set_keymap("n", "<Leader>t", ":lua require('fzf-lua').help_tags({ fzf_layout = 'reverse-list' })<CR>", {noremap = true})
 
   local actions = require "fzf-lua.actions"
   require'fzf-lua'.setup {
@@ -77,7 +78,8 @@ return function()
     grep = {
       prompt            = 'Rg❯ ',
       input_prompt      = 'Grep For❯ ',
-      cmd               = "rg --vimgrep",
+      cmd               = '',
+      -- cmd               = "rg --vimgrep",
       rg_opts           = "--hidden --column --line-number --no-heading " ..
                           "--color=always --smart-case -g '!{.git,node_modules}/*'",
       git_icons         = true,           -- show git icons?

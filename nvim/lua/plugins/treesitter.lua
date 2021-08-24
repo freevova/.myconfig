@@ -6,6 +6,7 @@ return function()
       "bash",
       "css",
       "erlang",
+      "haskell",
       -- "elixir",
       "graphql",
       "javascript",

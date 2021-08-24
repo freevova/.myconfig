@@ -2,6 +2,7 @@ return require("packer").startup(
   function()
     -- packer can manage itself
     use "wbthomason/packer.nvim"
+    use "famiu/nvim-reload"                                                                                             -- reloads lua configs
 
     -- APPEARANCE
     use "ntpeters/vim-better-whitespace"                                                                                -- highlights trailing whitespaces
@@ -56,15 +57,13 @@ return require("packer").startup(
 
     -- use "wellle/targets.vim"  -- move text objects SURROUTD
 
-    use "MarcWeber/vim-addon-mw-utils"                                                                                  -- support for textual snippets
-    use "tomtom/tlib_vim"                                                                                               -- support for textual snippets
-    use {"garbas/vim-snipmate", config = require "plugins.snipmate"}                                                    -- support for textual snippets
+    use "SirVer/ultisnips"                                                                                              -- the ultimate solution for snippets in Vim
+    use "honza/vim-snippets"                                                                                            -- contains snippets files for various programming languages.
 
     use {"vim-test/vim-test", config = require "plugins.vim-test"}                                                      -- plugin for testing code from vim
     use {"jgdavey/tslime.vim", config = require "plugins.tslime"}                                                       -- allows to run code in tmux
 
     -- use {"nvim-telescope/telescope.nvim", config = require "plugins.telescope", requires = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}}} --  highly extendable fuzzy finder over lists
-    -- use {"dkprice/vim-easygrep", config = require "plugins.easygrep"} -- grep, perhaps I'll replace it by telescope. Some day
   end
 )
 
@@ -72,18 +71,6 @@ return require("packer").startup(
 
 -- NeoBundle 'mhinz/vim-mix-format'                                      " introduced the formatter: mix format
 --   let g:mix_format_on_save = 1
--- NeoBundle 'Bling/vim-airline'                                         " status-bar
--- NeoBundle 'vim-airline/vim-airline-themes'
---   set laststatus=2
---   let g:airline#extensions#tabline#enabled = 1
---   let g:airline#extensions#branch#enabled = 0
---   let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
---   let g:airline_powerline_fonts = 1
---   let g:airline_theme='neodark'
---   let g:airline_left_sep = ''
---   let g:airline_left_alt_sep = ''
---   let g:airline_right_sep = ''
---   let g:airline_right_alt_sep = ''
 -- NeoBundle 'Lokaltog/vim-easymotion'                                   " number | letter motions for vim
 --   let g:EasyMotion_smartcase = 1
 --   map  / <Plug>(easymotion-sn)

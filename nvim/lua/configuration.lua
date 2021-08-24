@@ -43,8 +43,6 @@ vim.opt.modelines = 5                        -- sets the number of lines (at the
 
 -------------------- MAPPINGS ------------------------------
 map("i", "jj", "<ESC>", {noremap = true})         -- alias for exit
-map("n", "bn", ":bnext<CR>", {noremap = true})    -- next buffer
-map("n", "bp", ":bprev<CR>", {noremap = true})    -- prev buffer
 map("n", "<s-tab>", "za<CR>", {noremap = true})   -- toggle fold at current position.
 
 -------------------- API -------------------------------
@@ -94,24 +92,7 @@ vim.cmd([[
 ]])
 
 
---
---
---
--- " syntax enable
--- colorscheme gruvbox
--- set background=dark
--- highlight Comment cterm=italic gui=italic
---
--- set shell=zsh                       " set shell
--- set re=1                            " syntax highlighting enhancements
--- set nu                              " enable left numbers
--- set fillchars=vert:\                " disable vert div chars
--- set cursorcolumn                    " highlight the cursor screen line
 -- set spell spelllang=en_us           " spellchecker
--- set ttyfast                         " Improve vim's scrolling speed
--- set encoding=utf-8                  " encoding
--- set nohlsearch                      " turn off highlighting
--- set backspace=2                     " make backspace work like most other apps
 --
 -- TODO:
 -- " Remap arrows to resize
@@ -119,11 +100,3 @@ vim.cmd([[
 -- nnoremap <silent> <Down>  :call animate#window_delta_height(-15)<CR>
 -- nnoremap <silent> <Left>  :call animate#window_delta_width(30)<CR>
 -- nnoremap <silent> <Right> :call animate#window_delta_width(-30)<CR>
---
--- " move between buffers by tab
--- nmap <Tab> :bnext<CR>
--- nmap <Space> :bprev<CR>
---
--- " open current file in browser
--- map <Leader>o :!open %<CR>
-

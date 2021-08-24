@@ -1,6 +1,9 @@
 return function()
   vim.opt.termguicolors = true
 
+  vim.api.nvim_set_keymap("", "[b", ":BufferLineCycleNext<CR>", {noremap = true})
+  vim.api.nvim_set_keymap("", "]b", ":BufferLineCyclePrev<CR>", {noremap = true})
+
   require('bufferline').setup {
     options = {
       -- numbers = "both", -- "none" | "ordinal" | "buffer_id" | "both",
