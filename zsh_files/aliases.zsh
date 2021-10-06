@@ -1,7 +1,7 @@
 ##########################################
 # Core Aliases
 ##########################################
-alias vrc="$EDITOR $HOME/.config/nvim/init.vim"
+alias vrc="$EDITOR $HOME/.config/nvim/init.lua"
 alias zrc="$EDITOR $MY_ZSH; source $ZSH"
 alias trc="$EDITOR $MY_TMUX"
 

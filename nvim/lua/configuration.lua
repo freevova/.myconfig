@@ -7,6 +7,7 @@ end
 
 -------------------- OPTIONS -------------------------------
 vim.g.mapleader = ","                        -- leader key
+vim.g.maplocalleader = "\\"                        -- leader key
 vim.o.mouse = "a"                            -- mouse support
 vim.wo.colorcolumn = "120"                   -- shows vertical bar
 

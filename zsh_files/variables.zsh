@@ -8,6 +8,7 @@ export LANG=en_US.UTF-8
 export EDITOR=nvim
 export SHELL="$(which zsh)"
 export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
+export VAULT_ADDR=https://vault.test.prosapient.app
 
 export MY_ZSH="$HOME/.zshrc"
 export MY_TMUX="$HOME/.tmux.conf"
