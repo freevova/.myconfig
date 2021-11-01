@@ -62,6 +62,7 @@ return require("packer").startup(
 
     use {"vim-test/vim-test", config = require "plugins.vim-test"}                                                      -- plugin for testing code from vim
     use {"jgdavey/tslime.vim", config = require "plugins.tslime"}                                                       -- allows to run code in tmux
+    use "christoomey/vim-tmux-navigator"                                                                                -- navigation between vim and tmux splits using a consistent set of hotkeys.
 
     -- use {"nvim-telescope/telescope.nvim", config = require "plugins.telescope", requires = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}}} --  highly extendable fuzzy finder over lists
   end
