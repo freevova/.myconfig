@@ -92,6 +92,23 @@ vim.cmd([[
   endif
 ]])
 
+--" Cycle through relativenumber + number, number (only), and no numbering.
+vim.cmd([[
+  function! Cycle_numbering() abort
+    if exists('+relativenumber')
+      execute {
+            \ '00': 'set relativenumber   | set number',
+            \ '01': 'set norelativenumber | set number',
+            \ '10': 'set norelativenumber | set nonumber',
+            \ '11': 'set norelativenumber | set number' }[&number . &relativenumber]
+    else
+      " No relative numbering, just toggle numbers on and off.
+      set number!<CR>
+    endif
+  endfunction
+]])
+
+map("n", "<leader>r", ":call Cycle_numbering()<CR>", {noremap = true})
 
 -- set spell spelllang=en_us           " spellchecker
 --

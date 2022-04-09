@@ -15,6 +15,7 @@ plugins=(
   github
   heroku
   history-substring-search
+  kubectl
   man
   mix
   node

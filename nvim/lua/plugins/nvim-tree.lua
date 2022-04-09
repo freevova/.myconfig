@@ -33,7 +33,6 @@ return function()
   -- vim.api.nvim_set_keymap("", "<C-F>", ":NvimTreeFindFile<CR>", {noremap = true})
   vim.api.nvim_set_keymap("", "<C-F>", ":lua _G.NvimTreeFindFilePatched()<CR>", {noremap = true})
   vim.g.nvim_tree_special_files = {}              -- " List of filenames that gets highlighted with NvimTreeSpecialFile
-  vim.g.nvim_tree_hide_dotfiles = 0               -- " 0 by default, this option hides files and folders starting with a dot `.`
   vim.g.nvim_tree_git_hl = 1                      -- " 0 by default, will enable file highlight for git attributes (can be used without the icons).
   vim.g.nvim_tree_indent_markers = 1              -- " 0 by default, this option shows indent markers when folders are open
   vim.g.nvim_tree_icons = {

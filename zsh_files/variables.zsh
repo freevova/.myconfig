@@ -13,6 +13,8 @@ export VAULT_ADDR=https://vault.test.prosapient.app
 export MY_ZSH="$HOME/.zshrc"
 export MY_TMUX="$HOME/.tmux.conf"
 
+export PLUG_EDITOR='nvim://open?file=__FILE__&line=__LINE__'
+
 # Set $TERM variable
 [[ $TMUX = "" ]] && export TERM="xterm-256color-italic"
 [[ $TMUX != "" ]] && export TERM="tmux-256color"

@@ -7,7 +7,7 @@ return function()
       "css",
       "erlang",
       "haskell",
-      -- "elixir",
+      "elixir",
       "graphql",
       "javascript",
       "json",
