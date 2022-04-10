@@ -57,7 +57,7 @@ return require("packer").startup(
     use "jremmen/vim-ripgrep"                                                                                           -- search tool that recursively searches the current directory for a regex pattern
     use {"akinsho/nvim-toggleterm.lua"}                                                                                 -- plugin to persist and toggle multiple terminals
 
-    use "tpope/vim-fugitive"                                                                                            -- plugin for git
+    use {"tpope/vim-fugitive", requires = {"shumphrey/fugitive-gitlab.vim"}}                                            -- plugin for git
     use {"samoshkin/vim-mergetool", config = require "plugins.vim-mergetool"}                                           -- merge tool for git
     use {"lewis6991/gitsigns.nvim", config = require "plugins.gitsigns", requires = {"nvim-lua/plenary.nvim" }}         -- shows a git diff in the sign column
     use "kdheepak/lazygit.nvim"

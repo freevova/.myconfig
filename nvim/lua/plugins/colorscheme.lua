@@ -11,6 +11,7 @@ return function()
   -- vim.cmd("highlight Whitespace guifg=" .. vim.g.terminal_color_13 .. " gui=nocombine")
   --
   vim.cmd("highlight Comment cterm=italic gui=italic")
+  vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
   -- vim.cmd("highlight NvimTreeNormal guibg=#172932")
   vim.cmd("highlight NvimTreeIndentMarker guifg=" .. vim.g.terminal_color_13)
 end

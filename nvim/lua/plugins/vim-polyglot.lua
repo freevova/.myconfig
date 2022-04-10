@@ -1,3 +1,0 @@
--- return function()
---   vim.g.polyglot_disabled = {'javascript', 'autoindent', 'sensible'}
--- end

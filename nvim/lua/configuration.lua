@@ -10,6 +10,7 @@ vim.g.mapleader = ","                        -- leader key
 vim.g.maplocalleader = "\\"                        -- leader key
 vim.o.mouse = "a"                            -- mouse support
 vim.wo.colorcolumn = "120"                   -- shows vertical bar
+vim.o.shell ="/bin/zsh"
 
 vim.opt.clipboard = "unnamedplus"            -- use global clipboard
 vim.opt.undofile = true                      -- save undo changes between sessions
