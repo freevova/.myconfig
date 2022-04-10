@@ -38,7 +38,7 @@ return require("packer").startup(
         "quangnguyen30192/cmp-nvim-ultisnips"
       }
     }
-    use {"vim-autoformat/vim-autoformat", config = require "plugins.autoformat"}                                        -- format code with one button press
+    use {"vim-autoformat/vim-autoformat", config = require "plugins.vim-autoformat"}                                        -- format code with one button press
     use {"tomtom/tcomment_vim", config = require "plugins.tcomment"}                                                    -- language-agnostic comment/uncomment functionality
     use {"windwp/nvim-autopairs", config = require "plugins.autopairs"}                                                 -- autoclose parentheses
     use {"AndrewRadev/switch.vim", config = require "plugins.switch" }                                                  -- switch between opposite terms
@@ -55,11 +55,11 @@ return require("packer").startup(
     use {"ibhagwan/fzf-lua", config = require "plugins.fzf-lua", requires = {"kyazdani42/nvim-web-devicons", "vijaymarupudi/nvim-fzf"}}  -- fuzzy finder
     use "kevinhwang91/nvim-bqf"                                                                                         -- better design for quick-fix window, it is used in easygrep, vim-fugitive, etc
     use "jremmen/vim-ripgrep"                                                                                           -- search tool that recursively searches the current directory for a regex pattern
-    use {"akinsho/nvim-toggleterm.lua"}                                                                                 -- plugin to persist and toggle multiple terminals
+    use {"akinsho/nvim-toggleterm.lua", config = require "plugins.toggleterm"}                                                                                 -- plugin to persist and toggle multiple terminals
 
     use {"tpope/vim-fugitive", requires = {"shumphrey/fugitive-gitlab.vim"}}                                            -- plugin for git
     use {"samoshkin/vim-mergetool", config = require "plugins.vim-mergetool"}                                           -- merge tool for git
-    use {"lewis6991/gitsigns.nvim", config = require "plugins.gitsigns", requires = {"nvim-lua/plenary.nvim" }}         -- shows a git diff in the sign column
+    use {"lewis6991/gitsigns.nvim", config = require "plugins.gitsigns", requires = {"nvim-lua/plenary.nvim"}}          -- shows a git diff in the sign column
     use "kdheepak/lazygit.nvim"
 
     use {"vim-test/vim-test", config = require "plugins.vim-test"}                                                      -- plugin for testing code from vim

@@ -1,21 +1,3 @@
-_G.NvimTreeFindFilePatched = function()
-  local function starts_with(String, Start)
-    return string.sub(String, 1, string.len(Start)) == Start
-  end
-
-  local cwd = vim.fn.getcwd()
-  local cur_path = vim.fn.expand("%:p:h")
-
-  if starts_with(cur_path, cwd) then
-    require("nvim-tree").find_file(true)
-  else
-    require("nvim-tree").refresh()
-    require("nvim-tree.lib").change_dir(cur_path)
-    require("nvim-tree").find_file(true)
-    vim.cmd("cd " .. cur_path)
-  end
-end
-
 _G.NvimTreeOpenWith = function()
   local lib = require'nvim-tree.lib'
   local utils = require'nvim-tree.utils'
@@ -30,11 +12,10 @@ return function()
   local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
   vim.api.nvim_set_keymap("", "<C-p>", ":NvimTreeToggle<CR>", {noremap = true})
-  -- vim.api.nvim_set_keymap("", "<C-F>", ":NvimTreeFindFile<CR>", {noremap = true})
-  vim.api.nvim_set_keymap("", "<C-F>", ":lua _G.NvimTreeFindFilePatched()<CR>", {noremap = true})
+  vim.api.nvim_set_keymap("", "<C-F>", ":NvimTreeFindFile<CR>", {noremap = true})
+
   vim.g.nvim_tree_special_files = {}              -- " List of filenames that gets highlighted with NvimTreeSpecialFile
   vim.g.nvim_tree_git_hl = 1                      -- " 0 by default, will enable file highlight for git attributes (can be used without the icons).
-  vim.g.nvim_tree_indent_markers = 1              -- " 0 by default, this option shows indent markers when folders are open
   vim.g.nvim_tree_icons = {
     -- default the only icon that is changed
     default = "",
@@ -67,39 +48,52 @@ return function()
   }
 
   require'nvim-tree'.setup {
-    disable_netrw       = true,
-    hijack_netrw        = true,
-    open_on_setup       = false,
-    ignore_ft_on_setup  = {},
-    auto_close          = false,
-    open_on_tab         = false,
-    hijack_cursor       = false,
-    update_cwd          = true,
-    update_to_buf_dir   = {
-      enable = true,
-      auto_open = true,
+    auto_reload_on_write               = true,
+    disable_netrw                      = false,
+    hide_root_folder                   = false,
+    hijack_cursor                      = false,
+    hijack_netrw                       = true,
+    hijack_unnamed_buffer_when_opening = false,
+    ignore_buffer_on_setup             = false,
+    open_on_setup                      = false,
+    open_on_setup_file                 = false,
+    open_on_tab                        = false,
+    sort_by                            = "name",
+    update_cwd                         = false,
+    renderer = {
+      indent_markers = {
+        enable = false,
+        icons = {
+          corner = "└ ",
+          edge   = "│ ",
+          none   = "  ",
+        },
+      },
+    },
+    update_focused_file = {
+      enable      = true,
+      update_cwd  = true,
+      ignore_list = {},
     },
     diagnostics = {
       enable = false,
+      show_on_dirs = false,
       icons = {
-        hint = "",
-        info = "",
+        hint    = "",
+        info    = "",
         warning = "",
-        error = "",
+        error   = "",
       }
-    },
-    update_focused_file = {
-      enable      = false,
-      update_cwd  = false,
-      ignore_list = {}
-    },
-    system_open = {
-      cmd  = nil,
-      args = {}
     },
     filters = {
       dotfiles = false,
-      custom = {}
+      custom   = {},
+      exclude  = {},
+    },
+    git = {
+      enable  = true,
+      ignore  = true,
+      timeout = 400,
     },
     view = {
       width = 30,
