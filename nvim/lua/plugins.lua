@@ -7,6 +7,7 @@ return require("packer").startup(
     use "ntpeters/vim-better-whitespace"                                                                                -- highlights trailing whitespaces
     use "psliwka/vim-smoothie"                                                                                          -- smoothie scrolling tool
     use "camspiers/animate.vim"                                                                                         -- animation tool
+    use "direnv/direnv.vim"                                                                                             -- support direnv utility
     use "dhruvasagar/vim-zoom"                                                                                          -- zooming vim window splits
     use "wsdjeg/vim-fetch"                                                                                              -- open files in file:line_number format from CLI, useful with `neovim-remote` tool
     use "tpope/vim-surround"                                                                                            -- for manipulation with parentheses, brackets, quotes
