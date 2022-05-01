@@ -8,7 +8,6 @@ alias trc="$EDITOR $MY_TMUX"
 ##########################################
 # zsh/oh-my-zsh aliasies
 ##########################################
-alias zrc="$EDITOR $MY_ZSH"
 alias ohmyzsh="$EDITOR $ZSH"
 alias reload!="source $MY_ZSH"
 
@@ -34,7 +33,6 @@ alias svim="sudo nvim"
 alias history-stat="history | awk '{print \$2}' | sort | uniq -c | sort -n -r | head"
 alias o="open ."
 alias jobs="jobs -l"
-alias sd="clear;ssh d "
 alias cl=clear
 alias mkdir='mkdir -pv'
 
@@ -49,3 +47,17 @@ alias tmuxa='tmux attach'
 # Elixir/Erlang
 ##########################################
 alias miex='iex -S mix'
+##########################################
+# RUST powered utilities
+##########################################
+alias ls='exa'
+alias find='fd'
+alias grep='rg'
+alias du='dust'
+alias cat='bat'
+alias time='hyperfine'
+alias cloc='tokei'
+alias ps='procs'
+alias sed='sd'
+alias top='btm --battery'
+alias htop='btm --battery'

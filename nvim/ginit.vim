@@ -5,7 +5,7 @@ if exists('g:GuiFont')
   " with ! to suppress warning Font \"Terminus\" reports bad fixed pitch
   " metrics
   " GuiFont! Terminus:h14
-  GuiFont JetBrains Mono Medium:h10.1
+  GuiFont JetBrainsMono Nerd Font Mono [JB  ]:h10
   GuiTabline 0
   GuiPopupmenu 0
 end

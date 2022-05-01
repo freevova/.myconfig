@@ -7,7 +7,6 @@ return require("packer").startup(
     use "ntpeters/vim-better-whitespace"                                                                                -- highlights trailing whitespaces
     use "psliwka/vim-smoothie"                                                                                          -- smoothie scrolling tool
     use "camspiers/animate.vim"                                                                                         -- animation tool
-    use "direnv/direnv.vim"                                                                                             -- support direnv utility
     use "dhruvasagar/vim-zoom"                                                                                          -- zooming vim window splits
     use "wsdjeg/vim-fetch"                                                                                              -- open files in file:line_number format from CLI, useful with `neovim-remote` tool
     use "tpope/vim-surround"                                                                                            -- for manipulation with parentheses, brackets, quotes
@@ -15,7 +14,8 @@ return require("packer").startup(
     use "mg979/vim-visual-multi"                                                                                        -- ability to edit with multiple cursors
     use "rhysd/vim-gfm-syntax"                                                                                          -- Github Flavored Markdown
 
-    use {"morhetz/gruvbox", config = require "plugins.colorscheme", as = "colorscheme" }                                -- color Scheme
+    use {"direnv/direnv.vim", config = require "plugins.direnv"}                                                        -- support direnv utility
+    use {"morhetz/gruvbox", config = require "plugins.colorscheme"}                                                     -- color Scheme
     use {"luochen1990/rainbow", config = require "plugins.rainbow"}                                                     -- shows diff level of parentheses in diff color
     use {"rrethy/vim-hexokinase", config = require "plugins.hexokinase", run = "make hexokinase"}                       -- display colors in file
     use {"RRethy/vim-illuminate", config = require "plugins.illuminate"}                                                -- highlight other uses of the current word under the cursor
@@ -23,7 +23,7 @@ return require("packer").startup(
     use {"bkad/CamelCaseMotion", config = require "plugins.camel_case_motion"}                                          -- uses CamelCase jumps
     use {"voldikss/vim-translator", config = require "plugins.translator"}                                              -- translate human languages
     use {"folke/which-key.nvim", config = require "plugins.which-key" }                                                 -- a plugin which shows key-bindings
-    use {"hoob3rt/lualine.nvim", config = require "plugins.lualine", requires = {"kyazdani42/nvim-web-devicons", opt = true}}  -- statusline written in pure lua.
+    use {"hoob3rt/lualine.nvim", config = require "plugins.lualine", requires = {"ryanoasis/vim-devicons", opt = true}}  -- statusline written in pure lua.
 
     use {"neovim/nvim-lspconfig", config = require "plugins.lspconfig"}                                                 -- collection of common configurations for built-in language server client
     use {"ray-x/lsp_signature.nvim", config = require "plugins.lsp_signature"}                                          -- show signature from LSP when apply a function
@@ -48,12 +48,12 @@ return require("packer").startup(
     use "nvim-treesitter/playground"                                                                                    -- a tool for debugging treesitter
     use "kshenoy/vim-signature"                                                                                         -- plugin to place, toggle and display marks
 
-    use {'akinsho/nvim-bufferline.lua', config = require "plugins.bufferline",  requires = 'kyazdani42/nvim-web-devicons'}     -- A snazzy nail_care buffer line
+    use {'akinsho/nvim-bufferline.lua', config = require "plugins.bufferline",  requires = 'ryanoasis/vim-devicons'}    -- A snazzy nail_care buffer line
     use {"Asheq/close-buffers.vim", config = require "plugins.close-buffers"}                                           -- helpful plugin to work with buffers
     use "AndrewRadev/splitjoin.vim"                                                                                     -- brake code expression into multiple lines
 
-    use {"kyazdani42/nvim-tree.lua", config = require "plugins.nvim-tree", requires = {"kyazdani42/nvim-web-devicons"}} -- file browser
-    use {"ibhagwan/fzf-lua", config = require "plugins.fzf-lua", requires = {"kyazdani42/nvim-web-devicons", "vijaymarupudi/nvim-fzf"}}  -- fuzzy finder
+    use {"kyazdani42/nvim-tree.lua", config = require "plugins.nvim-tree", requires = {"ryanoasis/vim-devicons"}}       -- file browser
+    use {"ibhagwan/fzf-lua", config = require "plugins.fzf-lua", requires = {"ryanoasis/vim-devicons", "vijaymarupudi/nvim-fzf"}}  -- fuzzy finder
     use "kevinhwang91/nvim-bqf"                                                                                         -- better design for quick-fix window, it is used in easygrep, vim-fugitive, etc
     use "jremmen/vim-ripgrep"                                                                                           -- search tool that recursively searches the current directory for a regex pattern
     use {"akinsho/nvim-toggleterm.lua", config = require "plugins.toggleterm"}                                                                                 -- plugin to persist and toggle multiple terminals
