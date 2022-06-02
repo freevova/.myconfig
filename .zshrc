@@ -27,6 +27,7 @@ plugins=(
   sudo
   vi-mode
   yarn
+  tmuxinator
   z
   zsh-autosuggestions
   zsh-completions
