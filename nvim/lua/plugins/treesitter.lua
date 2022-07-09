@@ -24,7 +24,8 @@ return function()
     }
   }
 
-  -- I couldn't make folding work, so disabling for now
-  -- vim.opt.foldmethod = "expr"
-  -- vim.opt.foldexpr = vim.fn["nvim_treesitter#foldexpr"]()
+  vim.opt.foldmethod = 'expr'
+  vim.opt.foldexpr   = 'nvim_treesitter#foldexpr()'
+
+  vim.cmd([[ autocmd BufReadPost,FileReadPost * normal zR ]])
 end

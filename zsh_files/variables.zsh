@@ -15,8 +15,6 @@ export MY_TMUX="$HOME/.tmux.conf"
 
 export PLUG_EDITOR='nvim://open?file=__FILE__&line=__LINE__'
 
-# Set $TERM variable
-export TERM="xterm-256color-italic"
 export NVIM_LISTEN_ADDRESS="/tmp/nvimsocket"
 
 # This is to used to open files with NVIM using IEx.Helpers.open/1

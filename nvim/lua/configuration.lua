@@ -29,6 +29,7 @@ vim.opt.listchars = "tab:▷⋅,trail:⋅,nbsp:⋅"  -- strings to use in 'list'
 vim.opt.splitbelow = true                    -- open split window below
 vim.opt.splitright = true                    -- open split window right
 vim.opt.hidden = true                        -- allow hidden files
+vim.opt.cursorcolumn = true                  -- highlights whole column under cursor
 vim.opt.cursorline = true                    -- highlights whole line under cursor
 vim.opt.tabstop = 2                          -- number of spaces for tab
 vim.opt.shiftwidth = 2                       -- number of spaces to use for each step of (auto)indent
@@ -45,7 +46,6 @@ vim.opt.modelines = 5                        -- sets the number of lines (at the
 
 -------------------- MAPPINGS ------------------------------
 map("i", "jj", "<ESC>", {noremap = true})         -- alias for exit
-map("n", "<s-tab>", "za<CR>", {noremap = true})   -- toggle fold at current position.
 
 -------------------- API -------------------------------
 vim.api.wildmenu = true       -- command-mode completion
@@ -65,29 +65,11 @@ map("n", "<leader><space>", ":noh<CR>", {noremap = true})
 map("n", "/", "/\\v", {noremap = true})
 map("v", "/", "/\\v", {noremap = true})
 
-
-
--- vim.cmd("au BufWritePre * :%s/s+$/e") -- Remove trailing whitespaces
-
--- folding
-vim.cmd([[
-  if has('folding')
-    if has('windows')
-      let &fillchars='vert: '           " less cluttered vertical window separators
-    endif
-    set foldmethod=indent               " not as cool as syntax, but faster
-    set foldlevelstart=99               " start unfolded
-  endif
-]])
-
--- if vim.o.termguicolors then
---   -- nvim.err_writeln("&termguicolors must be set")
---   vim.opt.termguicolors = true
---   return
--- end
-
 -- Show proper termguicolors
 vim.cmd([[
+  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+
   if (has("termguicolors"))
     set termguicolors
   endif
