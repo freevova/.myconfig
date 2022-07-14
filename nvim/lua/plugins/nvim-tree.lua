@@ -15,6 +15,12 @@ return function()
   vim.api.nvim_set_keymap("", "<C-F>", ":NvimTreeFindFile<CR>", {noremap = true})
 
   require'nvim-tree'.setup {
+    sync_root_with_cwd = true,
+    update_focused_file = {
+      enable = true,
+      update_root = true,
+      ignore_list = {},
+    },
     renderer = {
      highlight_git = true,
      special_files = {}
