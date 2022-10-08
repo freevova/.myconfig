@@ -8,6 +8,7 @@ return function()
       "erlang",
       "haskell",
       "elixir",
+      "heex",
       "graphql",
       "javascript",
       "json",

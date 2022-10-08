@@ -31,7 +31,6 @@ plugins=(
   z
   zsh-autosuggestions
   zsh-completions
-  zsh-more-completions
   zsh-syntax-highlighting
 )
 
@@ -74,9 +73,6 @@ fi
 # MARK:Sourcing
 #########################################
 source "$ZSH/lib/key-bindings.zsh"
-source "$ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-source "$ZSH/plugins/history-substring-search/history-substring-search.zsh"
-source "$ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "/usr/share/fzf/completion.zsh"
 source "/usr/share/fzf/key-bindings.zsh"
 
@@ -108,4 +104,6 @@ man() {
 }
 
 # Run info about OS
-# screenfetch
+# neofetch
+
+# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

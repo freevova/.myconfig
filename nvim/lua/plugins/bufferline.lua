@@ -3,15 +3,19 @@ return function()
   require('bufferline').setup {
     highlights = {
       tab_selected = {
-        guifg = 'yellow',
-        guibg = 'grey'
+        fg = 'yellow',
+        bg = 'grey'
       },
     },
     options = {
       -- NOTE: this plugin is designed with this icon in mind,
       -- and so changing this is NOT recommended, this is intended
       -- as an escape hatch for people who cannot bear it for whatever reason
-      indicator_icon = '▎',
+      -- indicator_icon = '▎',
+      indicator = {
+        icon = '▎',
+        style = 'icon',
+      },
       buffer_close_icon = '',
       modified_icon = '●',
       close_icon = '',
