@@ -5,15 +5,14 @@ return require("packer").startup(
 
     -- APPEARANCE
     use "ntpeters/vim-better-whitespace"                                                                                -- highlights trailing whitespaces
-    use "psliwka/vim-smoothie"                                                                                          -- smoothie scrolling tool
-    use "camspiers/animate.vim"                                                                                         -- animation tool
+    -- use "camspiers/animate.vim"                                                                                         -- animation tool
     use "dhruvasagar/vim-zoom"                                                                                          -- zooming vim window splits
     use "wsdjeg/vim-fetch"                                                                                              -- open files in file:line_number format from CLI, useful with `neovim-remote` tool
     use "tpope/vim-surround"                                                                                            -- for manipulation with parentheses, brackets, quotes
     -- use "wellle/targets.vim"  -- move text objects SURROUTD
     use "mg979/vim-visual-multi"                                                                                        -- ability to edit with multiple cursors
     use "rhysd/vim-gfm-syntax"                                                                                          -- Github Flavored Markdown
-
+    use {"karb94/neoscroll.nvim", config = require "plugins.neoscroll"}                                                 -- smoothie scrolling tool
     use {"direnv/direnv.vim", config = require "plugins.direnv"}                                                        -- support direnv utility
     use {"morhetz/gruvbox", config = require "plugins.colorscheme"}                                                     -- color Scheme
     use {"luochen1990/rainbow", config = require "plugins.rainbow"}                                                     -- shows diff level of parentheses in diff color
@@ -44,8 +43,13 @@ return require("packer").startup(
     use {"windwp/nvim-autopairs", config = require "plugins.autopairs"}                                                 -- autoclose parentheses
     use {"AndrewRadev/switch.vim", config = require "plugins.switch" }                                                  -- switch between opposite terms
     use {"dhruvasagar/vim-table-mode", config = require "plugins.vim-table-mode"}                                       -- better handling for tables
-    use {"nvim-treesitter/nvim-treesitter", config = require "plugins.treesitter", run = ":TSUpdate"}                   -- a set of configs for treesitter
-    use "nvim-treesitter/playground"                                                                                    -- a tool for debugging treesitter
+    use {"nvim-treesitter/nvim-treesitter", config = require "plugins.treesitter", run = ":TSUpdate", requires = {      -- a set of configs for treesitter
+        "nvim-treesitter/playground",
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        "p00f/nvim-ts-rainbow"
+      }
+    }
+    -- use "nvim-treesitter/playground"                                                                                    -- a tool for debugging treesitter
     use "kshenoy/vim-signature"                                                                                         -- plugin to place, toggle and display marks
 
     use {'akinsho/nvim-bufferline.lua', config = require "plugins.bufferline",  requires = 'kyazdani42/nvim-web-devicons'}    -- A snazzy nail_care buffer line
@@ -56,7 +60,7 @@ return require("packer").startup(
     use {"ibhagwan/fzf-lua", config = require "plugins.fzf-lua", requires = {"ryanoasis/vim-devicons", "vijaymarupudi/nvim-fzf"}}  -- fuzzy finder
     use "kevinhwang91/nvim-bqf"                                                                                         -- better design for quick-fix window, it is used in easygrep, vim-fugitive, etc
     use "jremmen/vim-ripgrep"                                                                                           -- search tool that recursively searches the current directory for a regex pattern
-    use {"akinsho/nvim-toggleterm.lua", config = require "plugins.toggleterm"}                                                                                 -- plugin to persist and toggle multiple terminals
+    -- use {"akinsho/nvim-toggleterm.lua", config = require "plugins.toggleterm"}                                                                                 -- plugin to persist and toggle multiple terminals
 
     use {"tpope/vim-fugitive", requires = {"shumphrey/fugitive-gitlab.vim"}}                                            -- plugin for git
     use {"lewis6991/gitsigns.nvim", config = require "plugins.gitsigns", requires = {"nvim-lua/plenary.nvim"}}          -- shows a git diff in the sign column

@@ -29,6 +29,7 @@ TMUXIFIER_PATH="$HOME/.tmuxifier"
 ASDF_PATH="$HOME/.asdf"
 STYLISH_HASKELL_PATH="$ASDF_PATH/installs/haskell/8.6.3/bin"
 PROTOC_PATH="$HOME/.asdf/installs/elixir/1.11.3-otp-23/.mix/escripts"
+LOCAL_BIN_PATH="$HOME/.local/bin"
 
 ##########################################
 # Setting up the Bin Paths
@@ -41,4 +42,4 @@ SBIN_PATH="/usr/local/sbin"
 ##########################################
 # Build and Export the PATH
 ##########################################
-export PATH="$TMUXIFIER_BIN_PATH:$HOME_BIN:$SBIN_PATH:$ASDF_PATH:$STYLISH_HASKELL_PATH:$HOME_BIN_PATH:$PROTOC_PATH:$PATH"
+export PATH="$TMUXIFIER_BIN_PATH:$HOME_BIN:$SBIN_PATH:$ASDF_PATH:$STYLISH_HASKELL_PATH:$HOME_BIN_PATH:$PROTOC_PATH:$LOCAL_BIN_PATH:$PATH"
