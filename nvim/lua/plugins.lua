@@ -15,8 +15,7 @@ return require("packer").startup(
     use {"karb94/neoscroll.nvim", config = require "plugins.neoscroll"}                                                 -- smoothie scrolling tool
     use {"direnv/direnv.vim", config = require "plugins.direnv"}                                                        -- support direnv utility
     use {"morhetz/gruvbox", config = require "plugins.colorscheme"}                                                     -- color Scheme
-    use {"luochen1990/rainbow", config = require "plugins.rainbow"}                                                     -- shows diff level of parentheses in diff color
-    use {"rrethy/vim-hexokinase", config = require "plugins.hexokinase", run = "make hexokinase"}                       -- display colors in file
+    use {"norcalli/nvim-colorizer.lua", config = require "plugins.colorizer"}                                           -- display colors in file
     use {"RRethy/vim-illuminate", config = require "plugins.illuminate"}                                                -- highlight other uses of the current word under the cursor
     use {"Yggdroot/indentLine", config = require "plugins.indent_line"}                                                 -- prints vertical lines at each indentation level
     use {"bkad/CamelCaseMotion", config = require "plugins.camel_case_motion"}                                          -- uses CamelCase jumps
@@ -39,7 +38,7 @@ return require("packer").startup(
         "rafamadriz/friendly-snippets"
       }
     }
-    use {"tomtom/tcomment_vim", config = require "plugins.tcomment"}                                                    -- language-agnostic comment/uncomment functionality
+    use {"numToStr/Comment.nvim", config = require "plugins.comment"}                                                   -- language-agnostic comment/uncomment functionality
     use {"windwp/nvim-autopairs", config = require "plugins.autopairs"}                                                 -- autoclose parentheses
     use {"AndrewRadev/switch.vim", config = require "plugins.switch" }                                                  -- switch between opposite terms
     use {"dhruvasagar/vim-table-mode", config = require "plugins.vim-table-mode"}                                       -- better handling for tables
@@ -57,7 +56,6 @@ return require("packer").startup(
     use "AndrewRadev/splitjoin.vim"                                                                                     -- brake code expression into multiple lines
 
     use {"kyazdani42/nvim-tree.lua", config = require "plugins.nvim-tree", requires = {"kyazdani42/nvim-web-devicons"}}       -- file browser
-    use {"ibhagwan/fzf-lua", config = require "plugins.fzf-lua", requires = {"ryanoasis/vim-devicons", "vijaymarupudi/nvim-fzf"}}  -- fuzzy finder
     use "kevinhwang91/nvim-bqf"                                                                                         -- better design for quick-fix window, it is used in easygrep, vim-fugitive, etc
     use "jremmen/vim-ripgrep"                                                                                           -- search tool that recursively searches the current directory for a regex pattern
     -- use {"akinsho/nvim-toggleterm.lua", config = require "plugins.toggleterm"}                                                                                 -- plugin to persist and toggle multiple terminals
@@ -70,7 +68,12 @@ return require("packer").startup(
     use {"jgdavey/tslime.vim", config = require "plugins.tslime"}                                                       -- allows to run code in tmux
     use "christoomey/vim-tmux-navigator"                                                                                -- navigation between vim and tmux splits using a consistent set of hotkeys.
 
-    -- use {"nvim-telescope/telescope.nvim", config = require "plugins.telescope", requires = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}}} --  highly extendable fuzzy finder over lists
+    use {"nvim-telescope/telescope.nvim", config = require "plugins.telescope", requires = {                            --  highly extendable fuzzy finder over lists
+        "nvim-lua/popup.nvim",
+        "nvim-lua/plenary.nvim",
+      }
+    }
+    use {"nvim-telescope/telescope-fzf-native.nvim", run = "make", config = require "plugins.telescope-fzf-native"}
   end
 )
 

@@ -11,6 +11,8 @@ return function()
       "heex",
       "graphql",
       "javascript",
+      "tsx",
+      "typescript",
       "json",
       "lua",
       "html",
