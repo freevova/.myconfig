@@ -79,6 +79,4 @@ return function()
       map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
     end
   }
-
-  vim.cmd("highlight GitSignsCurrentLineBlame guifg=grey gui=bold,italic")
 end

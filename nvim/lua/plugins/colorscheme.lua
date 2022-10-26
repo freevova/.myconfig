@@ -16,5 +16,29 @@ return function()
       highlight Normal guibg=NONE ctermbg=NONE
     endif
   ]])
-  vim.cmd("highlight NvimTreeIndentMarker guifg=" .. vim.g.terminal_color_13)
+  -- vim.cmd("highlight NvimTreeIndentMarker guifg=" .. vim.g.terminal_color_13)
+
+  -- nvim-treesitter/nvim-treesitter
+  vim.api.nvim_set_hl(0, "@symbol", { link = "Identifier" })
+
+  vim.cmd([[
+    " kyazdani42/nvim-tree.lua
+    highlight NvimTreeIndentMarker guifg=#d3869b
+
+    " lewis6991/gitsigns.nvim
+    highlight GitSignsCurrentLineBlame guifg=grey gui=bold,italic
+
+    " hrsh7th/nvim-cmp
+    highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
+    highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
+    highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
+    highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
+    highlight! CmpItemKindInterface guibg=NONE guifg=#9CDCFE
+    highlight! CmpItemKindText guibg=NONE guifg=#9CDCFE
+    highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
+    highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
+    highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
+    highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
+    highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
+  ]])
 end

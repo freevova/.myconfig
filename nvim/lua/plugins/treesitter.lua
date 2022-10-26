@@ -83,6 +83,4 @@ return function()
   vim.opt.foldexpr   = 'nvim_treesitter#foldexpr()'
 
   vim.cmd([[ autocmd BufReadPost,FileReadPost * normal zR ]])
-
-  vim.api.nvim_set_hl(0, "@symbol", { link = "Identifier" })
 end
