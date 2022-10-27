@@ -40,5 +40,11 @@ return function()
     highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
     highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
     highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
+
+    "rlane/pounce.nvim"
+    highlight! PounceMatch guibg=#28b463 guifg=#D4D4D4
+    highlight! PounceGap guibg=#008000 guifg=#D4D4D4
+    highlight! PounceAccept guibg= #b7950b guifg=#D4D4D4
+    highlight! PounceAcceptBest guibg=#ff0000 guifg=#D4D4D4
   ]])
 end
