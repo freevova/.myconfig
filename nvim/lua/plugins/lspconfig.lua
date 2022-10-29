@@ -119,9 +119,8 @@ return function()
     bufmap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', bufopts)
     bufmap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', bufopts)
     bufmap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', bufopts)
-    -- bufmap("n", "<space>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", bufopts)
     bufmap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', bufopts)
-    bufmap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', bufopts)
+    bufmap('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
     bufmap('n', '<space>q', '<cmd>lua vim.diagnostic.set_loclist()<CR>', bufopts)
     bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', bufopts)
     bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', bufopts)
@@ -145,5 +144,9 @@ return function()
       }
     },
     capabilities = capabilities
+  }
+  lspconfig.tsserver.setup {
+      on_attach = on_attach,
+      capabilities = capabilities
   }
 end

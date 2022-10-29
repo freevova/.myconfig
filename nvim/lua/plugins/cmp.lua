@@ -96,14 +96,30 @@ return function()
     },
     sources = {
       { name = 'nvim_lsp' },
-      { name = 'buffer' },
-      { name = 'path' },
       { name = 'luasnip' },
       {
+        name = "buffer",
+        option = {
+          get_bufnrs = function()
+            local bufs = {}
+            for _, win in ipairs(vim.api.nvim_list_wins()) do
+              bufs[vim.api.nvim_win_get_buf(win)] = true
+            end
+            return vim.tbl_keys(bufs)
+          end,
+        },
+      },
+      {
         name = 'look',
-        keyword_length = 5,
+        keyword_length = 3,
         option = { convert_case = true, loud = true }
-      }
+      },
+      { name = "nvim_lua" },
+      { name = 'path' }
+    },
+    experimental = {
+      ghost_text = true,
+      native_menu = false,
     },
   }
 

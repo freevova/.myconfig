@@ -32,6 +32,7 @@ return require("packer").startup(
     use {"ray-x/lsp_signature.nvim", config = get_setup("lsp_signature")}                                               -- show signature from LSP when apply a function
     use {"hrsh7th/nvim-cmp", config = get_setup("cmp"), requires = {                                                    -- a completion engine plugin for neovim written in Lua
         "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-nvim-lua",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-cmdline",
@@ -60,7 +61,7 @@ return require("packer").startup(
       requires = 'kyazdani42/nvim-web-devicons',
       before = "gruvbox"
     }
-    use {"Asheq/close-buffers.vim", config = get_setup("close-buffers")}                                                -- helpful plugin to work with buffers
+    use {"famiu/bufdelete.nvim", config = get_setup("bufdelete")}                                                       -- helpful plugin to work with buffers
     use "AndrewRadev/splitjoin.vim"                                                                                     -- brake code expression into multiple lines
 
     use {"kyazdani42/nvim-tree.lua", config = get_setup("nvim-tree"), requires = {"kyazdani42/nvim-web-devicons"}}      -- file browser
@@ -84,6 +85,7 @@ return require("packer").startup(
     }
     use {"nvim-telescope/telescope-fzf-native.nvim", run = "make", config = get_setup("telescope-fzf-native")}          -- a plugin for fzf algorithm
     use {"rlane/pounce.nvim", config = get_setup("pounce"), before = "gruvbox"}                                         -- a motion plugin, based on incremental fuzzy search
+    use {"rcarriga/nvim-notify", config = get_setup("nvim-notify")}                                                     -- a fancy, configurable, notification manager for NeoVim
   end
 )
 
