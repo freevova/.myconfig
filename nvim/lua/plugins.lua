@@ -27,6 +27,14 @@ return require("packer").startup(
     use {"voldikss/vim-translator", config = get_setup("translator")}                                                   -- translate human languages
     use {"folke/which-key.nvim", config = get_setup("which-key") }                                                      -- a plugin which shows key-bindings
     use {"hoob3rt/lualine.nvim", config = get_setup("lualine"), requires = {"ryanoasis/vim-devicons", opt = true}}      -- statusline written in pure lua.
+    use {"kazhala/close-buffers.nvim", config = get_setup("close-buffers")}                                             -- plugin to that quickly deletes multiple buffers
+    use {"akinsho/nvim-bufferline.lua",                                                                                 -- A snazzy nail_care buffer line
+      config = get_setup("bufferline"),
+      requires = "kyazdani42/nvim-web-devicons",
+      before = "gruvbox"
+    }
+    use {"rcarriga/nvim-notify", config = get_setup("nvim-notify")}                                                     -- a fancy, configurable, notification manager for NeoVim
+    use {"nvim-zh/colorful-winsep.nvim", config = get_setup("colorful-winsep") }                                        -- colorful diff between windows
 
     use {"neovim/nvim-lspconfig", config = get_setup("lspconfig")}                                                      -- collection of common configurations for built-in language server client
     use {"ray-x/lsp_signature.nvim", config = get_setup("lsp_signature")}                                               -- show signature from LSP when apply a function
@@ -55,13 +63,7 @@ return require("packer").startup(
       }
     }
     use "kshenoy/vim-signature"                                                                                         -- plugin to place, toggle and display marks
-
-    use {"akinsho/nvim-bufferline.lua",                                                                                 -- A snazzy nail_care buffer line
-      config = get_setup("bufferline"),
-      requires = 'kyazdani42/nvim-web-devicons',
-      before = "gruvbox"
-    }
-    use {"famiu/bufdelete.nvim", config = get_setup("bufdelete")}                                                       -- helpful plugin to work with buffers
+    use {"ggandor/leap.nvim", config = get_setup("leap") }                                                              -- general-purpose motion plugin for Neovim
     use "AndrewRadev/splitjoin.vim"                                                                                     -- brake code expression into multiple lines
 
     use {"kyazdani42/nvim-tree.lua", config = get_setup("nvim-tree"), requires = {"kyazdani42/nvim-web-devicons"}}      -- file browser
@@ -84,8 +86,6 @@ return require("packer").startup(
       }
     }
     use {"nvim-telescope/telescope-fzf-native.nvim", run = "make", config = get_setup("telescope-fzf-native")}          -- a plugin for fzf algorithm
-    use {"rlane/pounce.nvim", config = get_setup("pounce"), before = "gruvbox"}                                         -- a motion plugin, based on incremental fuzzy search
-    use {"rcarriga/nvim-notify", config = get_setup("nvim-notify")}                                                     -- a fancy, configurable, notification manager for NeoVim
   end
 )
 
