@@ -94,16 +94,6 @@ return function()
   local on_attach = function(client, bufnr)
     require 'illuminate'.on_attach(client)
 
-    local add_user_cmd = vim.api.nvim_buf_create_user_command
-    vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
-      buffer = bufnr,
-      callback = vim.lsp.codelens.refresh,
-    })
-    vim.lsp.codelens.refresh()
-    add_user_cmd(bufnr, "ElixirFromPipe", M.from_pipe(client), {})
-    add_user_cmd(bufnr, "ElixirToPipe", M.to_pipe(client), {})
-    add_user_cmd(bufnr, "ElixirExpandMacro", M.expand_macro(client), { range = true })
-
     local bufmap = function(mode, lhs, rhs)
       local opts = {buffer = true}
       vim.keymap.set(mode, lhs, rhs, opts)
@@ -136,7 +126,19 @@ return function()
   local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
   lspconfig.elixirls.setup {
-    on_attach = on_attach,
+    on_attach = function(client, bufnr)
+      on_attach(client, bufnr)
+
+      local add_user_cmd = vim.api.nvim_buf_create_user_command
+      vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
+        buffer = bufnr,
+        callback = vim.lsp.codelens.refresh,
+      })
+      vim.lsp.codelens.refresh()
+      add_user_cmd(bufnr, "ElixirFromPipe", M.from_pipe(client), {})
+      add_user_cmd(bufnr, "ElixirToPipe", M.to_pipe(client), {})
+      add_user_cmd(bufnr, "ElixirExpandMacro", M.expand_macro(client), { range = true })
+    end,
     cmd = {"/home/vova/projects/elixir-ls/language_server.sh"},
     settings = {
       elixirLS = {

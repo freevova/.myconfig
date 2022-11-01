@@ -65,6 +65,25 @@ map("n", "<leader><space>", ":noh<CR>", {noremap = true})
 map("n", "/", "/\\v", {noremap = true})
 map("v", "/", "/\\v", {noremap = true})
 
+-- Easy add date/time
+function date()
+  local pos = vim.api.nvim_win_get_cursor(0)[2]
+  local line = vim.api.nvim_get_current_line()
+  local nline = line:sub(0, pos) .. "# " .. os.date("%d.%m.%y") .. line:sub(pos + 1)
+  vim.api.nvim_set_current_line(nline)
+end
+
+-- Highlight on yank
+local yankGrp = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+  group = yankGrp,
+  pattern = "*",
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  desc = "Highlight yank",
+})
+
 -- Show proper termguicolors
 vim.cmd([[
   let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
