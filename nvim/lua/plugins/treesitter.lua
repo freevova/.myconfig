@@ -87,9 +87,4 @@ return function()
       },
     }
   }
-
-  vim.opt.foldmethod = 'expr'
-  vim.opt.foldexpr   = 'nvim_treesitter#foldexpr()'
-
-  vim.cmd([[ autocmd BufReadPost,FileReadPost * normal zR ]])
 end

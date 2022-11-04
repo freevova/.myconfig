@@ -55,6 +55,8 @@ vim.opt.linebreak = true                     -- Stop words being broken on wrap
 vim.opt.showmode = false                     -- Don't display mode
 vim.o.whichwrap = vim.o.whichwrap .. "<,>,h,l" -- Wrap movement between lines in edit mode with arrows
 vim.opt.guicursor = "n-v-c-sm:block-blinkwait50-blinkon50-blinkoff50,i-ci-ve:ver25-Cursor-blinkon100-blinkoff100,r-cr-o:hor20" -- sets blinking guicursor
+vim.opt.foldmethod = 'expr'                  -- use expression for folding
+vim.opt.foldexpr   = 'nvim_treesitter#foldexpr()' -- gives the fold level of a line.
 -- -- vim.opt.splitkeep = "screen" -- Stops screen jumping when splits below are opened
 -- vim.opt.undodir = vim.fn.stdpath("config") .. "/undo"
 -- opt.jumpoptions = "view"
@@ -126,6 +128,30 @@ vim.cmd([[
 ]])
 
 map("n", "<leader>r", ":call Cycle_numbering()<CR>", {noremap = true})
+
+local M = {}
+-- function to create a list of commands and convert them to autocommands
+-------- This function is taken from https://github.com/norcalli/nvim_utils
+function M.nvim_create_augroups(definitions)
+  for group_name, definition in pairs(definitions) do
+    vim.api.nvim_command('augroup '..group_name)
+    vim.api.nvim_command('autocmd!')
+    for _, def in ipairs(definition) do
+      local command = table.concat(vim.tbl_flatten{'autocmd', def}, ' ')
+      vim.api.nvim_command(command)
+    end
+    vim.api.nvim_command('augroup END')
+  end
+end
+
+local autoCommands = {
+  -- other autocommands
+  open_folds = {
+    {"BufReadPost,FileReadPost", "*", "normal zR"}
+  }
+}
+
+M.nvim_create_augroups(autoCommands)
 
 -- TODO:
 -- " Remap arrows to resize
