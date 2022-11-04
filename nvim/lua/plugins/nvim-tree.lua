@@ -9,8 +9,6 @@ _G.NvimTreeOpenWith = function()
 end
 
 return function()
-  local tree_cb = require'nvim-tree.config'.nvim_tree_callback
-
   vim.api.nvim_set_keymap("", "<C-p>", ":NvimTreeToggle<CR>", {noremap = true})
   vim.api.nvim_set_keymap("", "<C-F>", ":NvimTreeFindFile<CR>", {noremap = true})
 
@@ -30,9 +28,9 @@ return function()
         custom_only = false,
         list = {
           { key = "o", cb = ":lua NvimTreeOpenWith()<CR>" },
-          { key = "|", cb = tree_cb("vsplit") },
-          { key = "_", cb = tree_cb("split") },
-          { key = "?", cb = tree_cb("toggle_help") }
+          { key = "|", action = "vsplit" },
+          { key = "_", action = "split" },
+          { key = "?", action = "toggle_help" }
         }
       }
     }

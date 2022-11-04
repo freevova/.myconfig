@@ -3,7 +3,15 @@ function get_setup(name)
   return require(setting)
 end
 
-return require("packer").startup(
+-- Autocommand that reloads neovim whenever you save the plugins.lua file
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]])
+
+return require("packer").startup({
   function()
     -- packer can manage itself
     use "wbthomason/packer.nvim"
@@ -34,7 +42,6 @@ return require("packer").startup(
       before = "gruvbox"
     }
     use {"rcarriga/nvim-notify", config = get_setup("nvim-notify")}                                                     -- a fancy, configurable, notification manager for NeoVim
-    use {"nvim-zh/colorful-winsep.nvim", config = get_setup("colorful-winsep") }                                        -- colorful diff between windows
 
     use {"neovim/nvim-lspconfig", config = get_setup("lspconfig")}                                                      -- collection of common configurations for built-in language server client
     use {"ray-x/lsp_signature.nvim", config = get_setup("lsp_signature")}                                               -- show signature from LSP when apply a function
@@ -86,8 +93,15 @@ return require("packer").startup(
       }
     }
     use {"nvim-telescope/telescope-fzf-native.nvim", run = "make", config = get_setup("telescope-fzf-native")}          -- a plugin for fzf algorithm
-  end
-)
+  end,
+  config = {
+    display = {
+      open_fn = function()
+        return require('packer.util').float({ border = 'single' })
+      end
+    }
+  }
+})
 
 
 
