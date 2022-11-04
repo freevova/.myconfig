@@ -19,7 +19,8 @@ vim.opt.writebackup = false                  -- does not make a backup before ov
 vim.opt.swapfile = false                     -- does not use swapfile for the buffer
 vim.opt.autoread = true                      -- autoreload files (when change git branch)
 vim.opt.title = true                         -- show filename in title
-vim.opt.scrolloff = 3                        -- minimum indentation from top/bottom of screen to highlighted result on searching
+vim.opt.scrolloff = 4                        -- minimum indentation from top/bottom of screen to highlighted result on searching
+vim.opt.sidescrolloff = 8                    -- Columns of context
 vim.opt.number = true                        -- print the line number in front of each line
 vim.opt.rnu = true                           -- print relative line numbers
 vim.opt.history = 1000                       -- size of the saved command-lines in a history table
@@ -33,6 +34,8 @@ vim.opt.cursorcolumn = true                  -- highlights whole column under cu
 vim.opt.cursorline = true                    -- highlights whole line under cursor
 vim.opt.tabstop = 2                          -- number of spaces for tab
 vim.opt.shiftwidth = 2                       -- number of spaces to use for each step of (auto)indent
+vim.opt.shiftround = true                    -- Round indent
+vim.opt.smartindent = true                   -- Insert indents automatically
 vim.opt.softtabstop = 2                      -- number of spaces that a <Tab> counts for while performing editing operations
 vim.opt.expandtab = true                     -- use the appropriate number of spaces to insert a <Tab> in the insert mode
 vim.opt.smarttab = true                      --  only even number of spaces (3 spaces + tab = 4 spaces, 2 spaces + tab = 4 spaces)
@@ -43,6 +46,18 @@ vim.opt.diffopt = "filler,internal,algorithm:histogram,indent-heuristic" -- opti
 vim.opt.signcolumn = "yes"                   -- reserve a column for language client/gitgutter notifications even if nothing to show
 vim.opt.modeline = true                      -- https://www.cs.swarthmore.edu/oldhelp/vim/modelines.html
 vim.opt.modelines = 5                        -- sets the number of lines (at the beginning and end of each file) vim checks for initializations
+vim.opt.encoding = "utf-8"                   -- set default encoding to utf-8
+vim.opt.spelllang = { "en_gb" }              -- set spell languages
+vim.opt.hlsearch = true                      -- Highlight found searches
+vim.opt.incsearch = true                     -- Shows the match while typing
+vim.opt.joinspaces = false                   -- No double spaces with join
+vim.opt.linebreak = true                     -- Stop words being broken on wrap
+vim.opt.showmode = false                     -- Don't display mode
+vim.o.whichwrap = vim.o.whichwrap .. "<,>,h,l" -- Wrap movement between lines in edit mode with arrows
+vim.opt.guicursor = "n-v-c-sm:block-blinkwait50-blinkon50-blinkoff50,i-ci-ve:ver25-Cursor-blinkon100-blinkoff100,r-cr-o:hor20" -- sets blinking guicursor
+-- -- vim.opt.splitkeep = "screen" -- Stops screen jumping when splits below are opened
+-- vim.opt.undodir = vim.fn.stdpath("config") .. "/undo"
+-- opt.jumpoptions = "view"
 
 -------------------- MAPPINGS ------------------------------
 map("i", "jj", "<ESC>", {noremap = true})         -- alias for exit
@@ -112,8 +127,6 @@ vim.cmd([[
 
 map("n", "<leader>r", ":call Cycle_numbering()<CR>", {noremap = true})
 
--- set spell spelllang=en_us           " spellchecker
---
 -- TODO:
 -- " Remap arrows to resize
 -- nnoremap <silent> <Up>    :call animate#window_delta_height(15)<CR>

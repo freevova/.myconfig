@@ -16,7 +16,7 @@ return require("packer").startup(
     use "tpope/vim-surround"                                                                                            -- for manipulation with parentheses, brackets, quotes
     -- use "wellle/targets.vim"  -- move text objects SURROUTD
     use "mg979/vim-visual-multi"                                                                                        -- ability to edit with multiple cursors
-    use "rhysd/vim-gfm-syntax"                                                                                          -- Github Flavored Markdown
+    use {"iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end}                            -- Github Flavored Markdown
     use {"karb94/neoscroll.nvim", config = get_setup("neoscroll")}                                                      -- smoothie scrolling tool
     use {"direnv/direnv.vim", config = get_setup("direnv")}                                                             -- support direnv utility
     use {"morhetz/gruvbox", config = get_setup("colorscheme")}                                                          -- color Scheme
