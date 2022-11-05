@@ -70,8 +70,12 @@ return require("packer").startup({
       }
     }
     use "kshenoy/vim-signature"                                                                                         -- plugin to place, toggle and display marks
-    use {"ggandor/leap.nvim", config = get_setup("leap") }                                                              -- general-purpose motion plugin for Neovim
+    use {"ggandor/leap.nvim", config = get_setup("leap"), requires = {
+      "ggandor/flit.nvim",
+      "ggandor/leap-spooky.nvim"
+    }}                                                              -- general-purpose motion plugin for Neovim
     use "AndrewRadev/splitjoin.vim"                                                                                     -- brake code expression into multiple lines
+    use "tpope/vim-unimpaired"                                                                                          -- Short normal mode aliases for commonly used ex commands
 
     use {"kyazdani42/nvim-tree.lua", config = get_setup("nvim-tree"), requires = {"kyazdani42/nvim-web-devicons"}}      -- file browser
     use "kevinhwang91/nvim-bqf"                                                                                         -- better design for quick-fix window, it is used in easygrep, vim-fugitive, etc
