@@ -33,7 +33,4 @@ return function()
       always_show_bufferline = true,
     }
   }
-
-  vim.api.nvim_set_keymap("", "<Tab>", ":BufferLineCycleNext<CR>", {noremap = true})
-  vim.api.nvim_set_keymap("", "<S-Tab>", ":BufferLineCyclePrev<CR>", {noremap = true})
 end
