@@ -57,6 +57,7 @@ vim.o.whichwrap = vim.o.whichwrap .. "<,>,h,l" -- Wrap movement between lines in
 vim.opt.guicursor = "n-v-c-sm:block-blinkwait50-blinkon50-blinkoff50,i-ci-ve:ver25-Cursor-blinkon100-blinkoff100,r-cr-o:hor20" -- sets blinking guicursor
 vim.opt.foldmethod = 'expr'                  -- use expression for folding
 vim.opt.foldexpr   = 'nvim_treesitter#foldexpr()' -- gives the fold level of a line.
+vim.opt.foldenable = false                   -- Disable folding at startup.
 -- -- vim.opt.splitkeep = "screen" -- Stops screen jumping when splits below are opened
 -- vim.opt.undodir = vim.fn.stdpath("config") .. "/undo"
 -- opt.jumpoptions = "view"
