@@ -92,7 +92,7 @@ return function()
   end
 
   local on_attach = function(client, bufnr)
-    require 'illuminate'.on_attach(client)
+    -- require 'illuminate'.on_attach(client)
 
     local bufmap = function(mode, lhs, rhs)
       local opts = {buffer = true}

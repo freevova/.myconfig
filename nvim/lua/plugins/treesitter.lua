@@ -16,7 +16,8 @@ return function()
       "json",
       "lua",
       "html",
-      "yaml"
+      "yaml",
+      "pug"
     },
     highlight = {
       enable = true,

@@ -2,7 +2,6 @@ return function()
   -- Set colorscheme
   vim.cmd [[ colorscheme gruvbox ]]
   vim.g.gruvbox_italic = 1
-  vim.opt.background = "dark"
 
   -- indent-blankline plugin uses Whitespace as a default color
   -- neodark doesn't have this setting, but it has specific settings for indentLine plugin,

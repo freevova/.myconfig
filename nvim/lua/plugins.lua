@@ -66,6 +66,7 @@ return require("packer").startup({
     use {"nvim-treesitter/nvim-treesitter", config = get_setup("treesitter"), run = ":TSUpdate", requires = {           -- a set of configs for treesitter
         "nvim-treesitter/playground",
         "nvim-treesitter/nvim-treesitter-textobjects",
+        "nvim-treesitter/nvim-treesitter-context",
         "p00f/nvim-ts-rainbow"
       }
     }
@@ -106,34 +107,3 @@ return require("packer").startup({
     }
   }
 })
-
-
-
--- NeoBundle 'mhinz/vim-mix-format'                                      " introduced the formatter: mix format
---   let g:mix_format_on_save = 1
--- NeoBundle 'Lokaltog/vim-easymotion'                                   " number | letter motions for vim
---   let g:EasyMotion_smartcase = 1
---   map  / <Plug>(easymotion-sn)
---   omap / <Plug>(easymotion-tn)
---   map  n <Plug>(easymotion-next)
---   map N <Plug>(easymotion-prev)
--- NeoBundle 'majutsushi/tagbar'                                         " shows tags
---   " Elixir Tagbar Configuration
---   let g:tagbar_type_elixir = {
---       \ 'ctagstype' : 'elixir',
---       \ 'kinds' : [
---           \ 'f:functions',
---           \ 'functions:functions',
---           \ 'c:callbacks',
---           \ 'd:delegates',
---           \ 'e:exceptions',
---           \ 'i:implementations',
---           \ 'a:macros',
---           \ 'o:operators',
---           \ 'm:modules',
---           \ 'p:protocols',
---           \ 'r:records',
---           \ 't:tests'
---       \ ]
---       \ }
---   noremap tt :TagbarToggle<CR>
