@@ -33,8 +33,17 @@ return function()
           })
         })(entry, vim_item)
         local strings = vim.split(kind.kind, "%s", { trimempty = true })
-        kind.kind = " " .. strings[1] .. " "
-        kind.menu = "    (" .. strings[2] .. ")"
+        if strings[1] then
+          kind.kind = " " .. strings[1]  .. " "
+        else
+          kind.kind = ""
+        end
+
+        if strings[2] then
+          kind.menu = "    (" .. strings[2] .. ")"
+        else
+          kind.menu = ""
+        end
 
         return kind
       end,
@@ -118,7 +127,7 @@ return function()
       { name = 'path' }
     },
     experimental = {
-      ghost_text = true,
+      ghost_text = false,
       native_menu = false,
     },
   }

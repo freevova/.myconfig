@@ -1,5 +1,14 @@
 return function()
   -- Set colorscheme
+  --
+  vim.opt.background = "dark"
+  -- vim.cmd([[
+  --   let g:gruvbox_material_background = 'hard'
+  --   let g:gruvbox_material_better_performance = 1
+  --   let g:gruvbox_material_transparent_background = 1
+  -- ]]
+  -- )
+  -- vim.cmd [[ colorscheme gruvbox-material ]]
   vim.cmd [[ colorscheme gruvbox ]]
   vim.g.gruvbox_italic = 1
 

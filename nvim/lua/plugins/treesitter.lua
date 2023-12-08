@@ -34,10 +34,10 @@ return function()
     incremental_selection = {
       enable = true,
       keymaps = {
-        init_selection = "gnn",
-        node_incremental = "grn",
-        scope_incremental = "grc",
-        node_decremental = "grm",
+        init_selection = "<space>gnn",
+        node_incremental = "<space>grn",
+        scope_incremental = "<space>grc",
+        node_decremental = "<space>grm",
       },
     },
     textobjects = {
@@ -75,15 +75,15 @@ return function()
       },
       swap = {
         enable = true,
-        swap_next = {["<leader>xp"] = "@parameter.inner"},
-        swap_previous = {["<leader>xP"] = "@parameter.inner"}
+        swap_next = {["<space>xp"] = "@parameter.inner"},
+        swap_previous = {["<space>xP"] = "@parameter.inner"}
       },
       lsp_interop = {
         enable = true,
         border = 'none',
         peek_definition_code = {
-          ["<leader>df"] = "@function.outer",
-          ["<leader>dF"] = "@class.outer",
+          ["<space>df"] = "@function.outer",
+          ["<space>dF"] = "@class.outer",
         },
       },
     }

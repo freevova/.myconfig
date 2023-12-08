@@ -142,7 +142,7 @@ return function()
     cmd = {"/home/vova/projects/elixir-ls/language_server.sh"},
     settings = {
       elixirLS = {
-        dialyzerEnabled = false,
+        dialyzerEnabled = false
       }
     },
     capabilities = capabilities
@@ -151,4 +151,5 @@ return function()
       on_attach = on_attach,
       capabilities = capabilities
   }
+  -- vim.lsp.set_log_level("debug")
 end

@@ -1,4 +1,7 @@
 return function()
+  local telescope = require("telescope")
+  -- local lga_actions = require("telescope-live-grep-args.actions")
+
   local map = function(mode, lhs, rhs)
     local opts = {noremap = true, silent = true}
     vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
@@ -16,14 +19,37 @@ return function()
   end
 
   map("n", "<leader>ff", "<CMD>lua project_files()<CR>")
-  map("n", "<leader>fg", ":Telescope live_grep theme=get_ivy prompt_prefix=🔍<CR>")
+  map("n", "<leader>fF", ":Telescope find_files prompt_position=top<CR>")
+  map("n", "<leader>fg", ":Telescope live_grep_args theme=get_ivy prompt_prefix=🔍<CR>")
   map("n", "<leader>fb", ":Telescope buffers theme=get_ivy prompt_prefix=🔍 sort_lastused=true<CR>")
   map("n", "<leader>fh", ":Telescope help_tags theme=get_ivy prompt_prefix=🔍<CR>")
   map("n", "<leader>fs", ":Telescope lsp_document_symbols theme=get_ivy prompt_prefix=🔍<CR>")
 
   local actions = require("telescope.actions")
-  require("telescope").setup{
+  telescope.setup{
+    pickers = {
+      buffers = {
+        mappings = {
+          i = {
+            ["<c-d>"] = actions.delete_buffer + actions.move_to_top,
+          }
+        }
+      }
+    },
+    extensions = {
+      live_grep_args = {
+        auto_quoting = true, -- enable/disable auto-quoting
+      }
+    },
     defaults = {
+      layout_strategy = "horizontal",
+      layout_config = {
+        horizontal = {
+          prompt_position = "top",
+        },
+      },
+      sorting_strategy = "ascending",
+      --- other configs
       mappings = {
         i = {
           ["<esc>"] = actions.close,
@@ -41,4 +67,7 @@ return function()
       }
     }
   }
+
+  telescope.load_extension("live_grep_args")
+  telescope.load_extension('search_dir_picker')
 end
