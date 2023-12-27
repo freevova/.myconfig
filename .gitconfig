@@ -13,20 +13,27 @@
 [core]
   excludesfile = /home/vova/.gitignore
   editor = nvim
-  pager = diff-so-fancy | less --tabs=4 -RFX
+  pager = delta
 [diff]
   tool = vimdiff
+  colorMoved = default
+[include]
+  path = /home/vova/.myconfig/delta/themes.gitconfig
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true
+  light = false 
+  line-numbers = true
+  side-by-side = true
+  hyperlinks = true
+  ; features = woolly-mammoth
+  features = mantis-shrimp
 [difftool]
   prompt = false
-[difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path =
 [merge]
   conflictStyle = diff3
   tool = vimdiff
-# [mergetool "sourcetree"]
-#   cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-#   trustExitCode = true
 [mergetool "vimdiff"]
   cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [pull]

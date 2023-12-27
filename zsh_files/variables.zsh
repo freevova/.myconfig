@@ -22,6 +22,10 @@ export NVIM_LISTEN_ADDRESS="/tmp/nvimsocket"
 # This is to used to open files with NVIM using IEx.Helpers.open/1
 export ELIXIR_EDITOR="tmux split-window -- nvim + __LINE__ __FILE__"
 
+export BAT_CONFIG_PATH="$HOME/.myconfig/bat.conf"
+
+export XDG_CONFIG_HOME="$HOME/.myconfig/"
+
 ##########################################
 # Setting up the Paths
 ##########################################
@@ -38,8 +42,9 @@ TMUXIFIER_BIN_PATH="$TMUXIFIER_PATH/bin"
 HOME_BIN_PATH="$HOME/.bin"
 HOME_BIN="$HOME/bin"
 SBIN_PATH="/usr/local/sbin"
+CARGO_BIN_PATH="$HOME/.asdf/installs/rust/1.45.2/bin"
 
 ##########################################
 # Build and Export the PATH
 ##########################################
-export PATH="$TMUXIFIER_BIN_PATH:$HOME_BIN:$SBIN_PATH:$ASDF_PATH:$STYLISH_HASKELL_PATH:$HOME_BIN_PATH:$PROTOC_PATH:$LOCAL_BIN_PATH:$PATH"
+export PATH="$CARGO_BIN_PATH:$TMUXIFIER_BIN_PATH:$HOME_BIN:$SBIN_PATH:$ASDF_PATH:$STYLISH_HASKELL_PATH:$HOME_BIN_PATH:$PROTOC_PATH:$LOCAL_BIN_PATH:$PATH"

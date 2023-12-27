@@ -38,6 +38,11 @@ return require("packer").startup({
     -- use "projekt0n/github-nvim-theme"
     -- use { "catppuccin/nvim", as = "catppuccin" }
 
+    -- Debugging
+    use 'nvim-lua/plenary.nvim'
+    use {'mfussenegger/nvim-dap', config = get_setup("dap")}
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"}, config = get_setup("dap-ui") }
+
     use {"norcalli/nvim-colorizer.lua", config = get_setup("colorizer")}                                                -- display colors in file
     use {"lukas-reineke/indent-blankline.nvim", config = get_setup("indent-blankline")}                                 -- prints vertical lines at each indentation level
     use {"bkad/CamelCaseMotion", config = get_setup("camel_case_motion")}                                               -- uses CamelCase jumps
@@ -59,6 +64,9 @@ return require("packer").startup({
         "rafamadriz/friendly-snippets"
       }
     }
+
+    use { "simrat39/rust-tools.nvim", config = get_setup("rust-tools")}
+
     use {"dhruvasagar/vim-table-mode", config = get_setup("vim-table-mode")}                                            -- better handling for tables
     use {"nvim-treesitter/nvim-treesitter", config = get_setup("treesitter"), run = ":TSUpdate", requires = {           -- a set of configs for treesitter
         "nvim-treesitter/playground"

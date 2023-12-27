@@ -23,7 +23,6 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias to="z"
 
 ##########################################
 # Utility aliases
