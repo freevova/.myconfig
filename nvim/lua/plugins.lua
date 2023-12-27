@@ -20,7 +20,7 @@ return require("packer").startup({
     -- use "wsdjeg/vim-fetch"                                                                                              -- open files in file:line_number format from CLI, useful with `neovim-remote` tool
     use "dhruvasagar/vim-zoom"                                                                                          -- zooming vim window splits
     use "tpope/vim-surround"                                                                                            -- for manipulation with parentheses, brackets, quotes
-    use "kshenoy/vim-signature"                                                                                         -- plugin to place, toggle and display marks
+    use { "chentoast/marks.nvim", config = get_setup("marks") }                                                         -- plugin to place, toggle and display marks
     use {"numToStr/Comment.nvim", config = get_setup("comment")}                                                        -- language-agnostic comment/uncomment functionality
     use {"windwp/nvim-autopairs", config = get_setup("autopairs")}                                                      -- autoclose parentheses
     use {"AndrewRadev/switch.vim", config = get_setup("switch") }                                                       -- switch between opposite terms

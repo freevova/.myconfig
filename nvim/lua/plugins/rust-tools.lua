@@ -49,7 +49,7 @@ local opts = {
       bufmap('n', '<C-space>', rt.hover_actions.hover_actions, bufopts)
       bufmap('n', '<C-space>a', rt.code_action_group.code_action_group, bufopts)
     end,
-    cmd = {"/home/vova/.asdf/installs/rust/1.45.2/bin/rust-analyzer"},
+    cmd = {"/home/vova/.local/share/rtx/installs/rust/1.74.1/bin/rust-analyzer"},
     settings = {
       ["rust-analyzer"] = {
         -- enable clippy on save

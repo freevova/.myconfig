@@ -24,8 +24,6 @@ export ELIXIR_EDITOR="tmux split-window -- nvim + __LINE__ __FILE__"
 
 export BAT_CONFIG_PATH="$HOME/.myconfig/bat.conf"
 
-export XDG_CONFIG_HOME="$HOME/.myconfig/"
-
 ##########################################
 # Setting up the Paths
 ##########################################

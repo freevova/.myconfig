@@ -9,7 +9,6 @@ ZSH_AUTOSUGGEST_STRATEGY=match_prev_cmd
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root)
 
 plugins=(
-  asdf
   docker
   git
   github
@@ -91,6 +90,9 @@ command -v direnv >/dev/null && {
 
 # starship configuration
 eval "$(starship init zsh)"
+
+# Register shell hook
+eval "$(rtx activate zsh)"
 
 # Color output in console
 man() {
