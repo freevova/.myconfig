@@ -139,17 +139,22 @@ return function()
       add_user_cmd(bufnr, "ElixirToPipe", M.to_pipe(client), {})
       add_user_cmd(bufnr, "ElixirExpandMacro", M.expand_macro(client), { range = true })
     end,
-    cmd = {"/home/vova/projects/elixir-ls/language_server.sh"},
+    cmd = {"/home/vova/projects/elixir-ls/server/language_server.sh"},
     settings = {
       elixirLS = {
-        dialyzerEnabled = false
+        dialyzerEnabled = false,
+        fetchDeps = false,
+        -- trace = {
+        --   server = "verbose"
+        -- }
       }
     },
     capabilities = capabilities
   }
-  lspconfig.tsserver.setup {
+  lspconfig.ts_ls.setup {
       on_attach = on_attach,
       capabilities = capabilities
   }
   -- vim.lsp.set_log_level("debug")
+  vim.lsp.inlay_hint.enable()
 end

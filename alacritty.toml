@@ -1,0 +1,62 @@
+import = ["/home/vova/.config/alacritty/themes/themes/solarized_dark.toml"]
+
+[colors.bright]
+black = "#77767B"
+blue = "#839496"
+cyan = "#93a1a1"
+green = "#586e75"
+magenta = "#6c71c4"
+red = "#cb4b16"
+white = "#fdf6e3"
+yellow = "#657b83"
+
+[colors.normal]
+black = "#073642"
+blue = "#268bd2"
+cyan = "#2aa198"
+green = "#859900"
+magenta = "#d33682"
+red = "#dc322f"
+white = "#eee8d5"
+yellow = "#b58900"
+
+[colors.primary]
+background = "#3D3F41"
+foreground = "#C0BFBC"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 10.2
+
+[font.bold]
+family = "JetBrainsMonoMedium Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "JetBrainsMonoMedium Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "JetBrainsMonoMedium Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "JetBrainsMonoMedium Nerd Font"
+style = "Regular"
+
+[shell]
+program = "/usr/bin/zsh"
+
+[window]
+dynamic_title = false
+opacity = 0.9
+
+[window.dimensions]
+columns = 100
+lines = 50
+
+[window.position]
+x = 1200
+y = 100

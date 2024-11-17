@@ -92,7 +92,7 @@ command -v direnv >/dev/null && {
 eval "$(starship init zsh)"
 
 # Register shell hook
-eval "$(rtx activate zsh)"
+eval "$(mise activate zsh)"
 
 # Color output in console
 man() {
@@ -107,5 +107,3 @@ man() {
 
 # Run info about OS
 # neofetch
-
-# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

@@ -5,19 +5,23 @@ return function()
     ensure_installed = {
       "bash",
       "css",
+      "eex",
       "elixir",
       "erlang",
-      "haskell",
-      "heex",
       "graphql",
+      "haskell",
+      "html",
+      "heex",
+      "heex",
       "javascript",
-      "tsx",
-      "typescript",
+      "java",
       "json",
       "lua",
-      "html",
-      "yaml",
-      "pug"
+      "markdown",
+      "pug",
+      "tsx",
+      "typescript",
+      "yaml"
     },
     highlight = {
       enable = true,
@@ -26,18 +30,13 @@ return function()
     indent = {
       enable = true
     },
-    rainbow = {
-      enable = true,
-      extended_mode = true,
-      max_file_lines = nil,
-    },
     incremental_selection = {
       enable = true,
       keymaps = {
-        init_selection = "<space>gnn",
-        node_incremental = "<space>grn",
-        scope_incremental = "<space>grc",
-        node_decremental = "<space>grm",
+        init_selection = "gnn",
+        node_incremental = "grn",
+        scope_incremental = "grc",
+        node_decremental = "grm",
       },
     },
     textobjects = {

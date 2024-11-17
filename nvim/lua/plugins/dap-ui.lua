@@ -1,1 +1,3 @@
-require("dapui").setup()
+return function()
+  require("dapui").setup()
+end

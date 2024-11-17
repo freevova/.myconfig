@@ -19,7 +19,8 @@ return function()
   end
 
   map("n", "<leader>ff", "<CMD>lua project_files()<CR>")
-  map("n", "<leader>fF", ":Telescope find_files prompt_position=top<CR>")
+  -- map("n", "<leader>fF", ":Telescope find_files prompt_position=top --no_ignore<CR>")
+  map("n", "<leader>fF", ":lua require('telescope.builtin').find_files({prompt_position=top, no_ignore = true})<CR>")
   map("n", "<leader>fg", ":Telescope live_grep_args theme=get_ivy prompt_prefix=🔍<CR>")
   map("n", "<leader>fb", ":Telescope buffers theme=get_ivy prompt_prefix=🔍 sort_lastused=true<CR>")
   map("n", "<leader>fh", ":Telescope help_tags theme=get_ivy prompt_prefix=🔍<CR>")

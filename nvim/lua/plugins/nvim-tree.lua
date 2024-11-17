@@ -104,32 +104,16 @@ end
 return function()
   vim.api.nvim_set_keymap("", "<C-p>", ":NvimTreeToggle<CR>", {noremap = true})
   vim.api.nvim_set_keymap("", "<C-F>", ":NvimTreeFindFile<CR>", {noremap = true})
-  --
-  -- require'nvim-tree'.setup {
-  --   sync_root_with_cwd = true,
-  --   update_focused_file = {
-  --     enable = true,
-  --     update_root = true,
-  --     ignore_list = {},
-  --   },
-  --   renderer = {
-  --    highlight_git = true,
-  --    special_files = {}
-  --   },
-  --   view = {
-  --     mappings = {
-  --       custom_only = false,
-  --       list = {
-  --         { key = "o", cb = ":lua NvimTreeOpenWith()<CR>" },
-  --         { key = "|", action = "vsplit" },
-  --         { key = "_", action = "split" },
-  --         { key = "?", action = "toggle_help" }
-  --       }
-  --     }
-  --   }
-  -- }
 
   require("nvim-tree").setup({
     on_attach = on_attach,
+    view = {
+      width = 50,
+    },
+    renderer = {
+      indent_markers = {
+        enable = true,
+      },
+    }
   })
 end

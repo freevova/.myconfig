@@ -33,6 +33,8 @@ STYLISH_HASKELL_PATH="$ASDF_PATH/installs/haskell/8.6.3/bin"
 PROTOC_PATH="$HOME/.asdf/installs/elixir/1.11.3-otp-23/.mix/escripts"
 LOCAL_BIN_PATH="$HOME/.local/bin"
 
+PNPM_HOME="/home/vova/.local/share/pnpm"
+
 ##########################################
 # Setting up the Bin Paths
 ##########################################
@@ -45,4 +47,4 @@ CARGO_BIN_PATH="$HOME/.asdf/installs/rust/1.45.2/bin"
 ##########################################
 # Build and Export the PATH
 ##########################################
-export PATH="$CARGO_BIN_PATH:$TMUXIFIER_BIN_PATH:$HOME_BIN:$SBIN_PATH:$ASDF_PATH:$STYLISH_HASKELL_PATH:$HOME_BIN_PATH:$PROTOC_PATH:$LOCAL_BIN_PATH:$PATH"
+export PATH="$PNPM_HOME:$CARGO_BIN_PATH:$TMUXIFIER_BIN_PATH:$HOME_BIN:$SBIN_PATH:$ASDF_PATH:$STYLISH_HASKELL_PATH:$HOME_BIN_PATH:$PROTOC_PATH:$LOCAL_BIN_PATH:$PATH"

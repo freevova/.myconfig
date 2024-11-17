@@ -40,8 +40,8 @@ return require("packer").startup({
 
     -- Debugging
     use 'nvim-lua/plenary.nvim'
-    use {'mfussenegger/nvim-dap', config = get_setup("dap")}
-    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"}, config = get_setup("dap-ui") }
+    -- use {"mfussenegger/nvim-dap", config = get_setup("dap")}
+    -- use {"rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"}, config = get_setup("dap-ui")}
 
     use {"norcalli/nvim-colorizer.lua", config = get_setup("colorizer")}                                                -- display colors in file
     use {"lukas-reineke/indent-blankline.nvim", config = get_setup("indent-blankline")}                                 -- prints vertical lines at each indentation level
@@ -65,7 +65,8 @@ return require("packer").startup({
       }
     }
 
-    use { "simrat39/rust-tools.nvim", config = get_setup("rust-tools")}
+    -- use {"simrat39/rust-tools.nvim", config = get_setup("rust-tools")}
+    use {"mrcjkb/rustaceanvim"}
 
     use {"dhruvasagar/vim-table-mode", config = get_setup("vim-table-mode")}                                            -- better handling for tables
     use {"nvim-treesitter/nvim-treesitter", config = get_setup("treesitter"), run = ":TSUpdate", requires = {           -- a set of configs for treesitter
@@ -74,8 +75,8 @@ return require("packer").startup({
     }
 
     use {"nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter", requires = "nvim-treesitter/nvim-treesitter" } -- syntax aware text-objects, select, move, swap, and peek support.
-    use {"nvim-treesitter/nvim-treesitter-context", after = "nvim-treesitter", requires = "nvim-treesitter/nvim-treesitter" }     -- shows the context of the currently visible buffer contents
-    use {"HiPhish/nvim-ts-rainbow2", after = "nvim-treesitter", requires = "nvim-treesitter/nvim-treesitter" }                    -- rainbow parentheses for neovim using tree-sitter. 
+    -- use {"nvim-treesitter/nvim-treesitter-context", after = "nvim-treesitter", requires = "nvim-treesitter/nvim-treesitter" }     -- shows the context of the currently visible buffer contents
+    use {"HiPhish/rainbow-delimiters.nvim", after = "nvim-treesitter"}                                                            -- rainbow parentheses for neovim using tree-sitter. 
 
     use {"nvim-telescope/telescope.nvim", config = get_setup("telescope"), requires = {                                 --  highly extendable fuzzy finder over lists
         "nvim-lua/popup.nvim",

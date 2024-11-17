@@ -27,11 +27,12 @@ return function()
   -- vim.cmd("highlight NvimTreeIndentMarker guifg=" .. vim.g.terminal_color_13)
 
   -- nvim-treesitter/nvim-treesitter
-  vim.api.nvim_set_hl(0, "@symbol", { link = "Identifier" })
+  vim.api.nvim_set_hl(0, "@string.special.symbol.elixir", { link = "Identifier" })
+  vim.api.nvim_set_hl(0, "@module", { link = "Type" })
 
   vim.cmd([[
     " kyazdani42/nvim-tree.lua
-    highlight NvimTreeIndentMarker guifg=#d3869b
+    hi link NvimTreeIndentMarker Comment
 
     " lewis6991/gitsigns.nvim
     highlight GitSignsCurrentLineBlame guifg=grey gui=bold,italic
@@ -48,6 +49,7 @@ return function()
     highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
     highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
     highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
+    highlight! LspInlayHint guibg=NONE guifg=#808080
 
     "rlane/pounce.nvim"
     highlight! PounceMatch guibg=#28b463 guifg=#D4D4D4
